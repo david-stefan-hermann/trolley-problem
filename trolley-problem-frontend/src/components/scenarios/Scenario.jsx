@@ -8,7 +8,7 @@ const Scenario = ({ scenario, onNextScenario }) => {
     }
 
     return (
-        <div className="">
+        <div className="bg-white w-full max-w-3xl p-6 rounded-lg shadow-lg">
             {outcome ? (
                 <>
                     <img src={outcome.image} alt="Outcome Illustration" className="w-full mb-4 rounded" />
