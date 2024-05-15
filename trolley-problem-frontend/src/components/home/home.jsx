@@ -3,12 +3,25 @@ import Scenarios from '../scenarios/Scenarios'
 
 const Home = () => {
     return (
-        <div className="flex flex-col items-center min-h-screen p-4">
-            <header className="w-full max-w-3xl text-center">
+        <div className="flex flex-col min-h-screen p-4">
+            <header className="w-full max-w-4xl text-center mx-auto mb-4">
                 <h1 className="text-4xl font-bold mb-2">Das Trolley Problem für autonomes Fahren</h1>
-                <h2 className="text-2xl mb-8">von Karo, Philipp und David</h2>
             </header>
-            <Scenarios />
+            <main className="flex-grow flex flex-col items-center w-full">
+                <Scenarios />
+            </main>
+            <footer className="font-medium w-full max-w-3xl text-center mx-auto mt-8 p-4">
+                <span className="text-1xl">
+                    <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://neal.fun/absurd-trolley-problems/'>neal.fun</a>
+                    {' '} &#x2013; {' '}
+                    <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://www.chatgpt.com'>ChatGPT</a>
+                    {' '} &#x2013; {' '}
+                    <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://vitejs.dev/guide/'>Vitejs</a>
+                    {' '} &#x2013; {' '}
+                    <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://tailwindcss.com/docs'>Tailwind CSS</a>
+                </span>
+                <p className="text-1xl">von 2024 Karo, Philipp und David</p>
+            </footer>
         </div>
     )
 }
