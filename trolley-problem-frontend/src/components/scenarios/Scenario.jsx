@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import Button from '../input_elements/button'
 
+import placeholderImage from '../../assets/ghost.jpg'
+
 const Scenario = ({ scenario, onNextScenario }) => {
     const [outcome, setOutcome] = useState(null)
 
@@ -15,11 +17,12 @@ const Scenario = ({ scenario, onNextScenario }) => {
             <div className="font-semibold bg-white w-full max-w-3xl p-6 rounded-lg shadow-lg">
                 {outcome ? (
                     <>
-                        {
-                            outcome.image ? (
-                                <img src={outcome.image} alt="Outcome Illustration" className="w-full mb-4 rounded" />
-                            ) : null
-                        }
+                        <img
+                            src={outcome.image}
+                            alt="Outcome Illustration"
+                            className="w-full mb-4 rounded"
+                            onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
+                        />
                         <p className="text-lg mb-4">{outcome.description}</p>
                         <Button onClick={() => {
                             setOutcome(null)
@@ -30,7 +33,12 @@ const Scenario = ({ scenario, onNextScenario }) => {
                     </>
                 ) : (
                     <>
-                        <img src={scenario.initialImage} alt="Initial State Illustration" className="w-full mb-4 rounded" />
+                        <img
+                            src={scenario.initialImage}
+                            alt="Initial State Illustration"
+                            className="w-full mb-4 rounded"
+                            onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
+                        />
                         <p className="text-lg mb-4">{scenario.question}</p>
                         <div className="flex justify-center mt-6 space-x-4">
                             {scenario.outcomes.map((outcome, index) => (
