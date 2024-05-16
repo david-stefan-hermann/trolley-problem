@@ -14,6 +14,7 @@ const Dashboard = () => {
       const data = await response.json()
       setResponses(data)
     } catch (error) {
+      setResponses([])
       console.error('Error fetching responses:', error)
     }
   }
@@ -30,7 +31,7 @@ const Dashboard = () => {
     const userPassword = prompt('Please enter the password to delete all votes:')
     if (userPassword === password) {
       try {
-        await fetch(`${config.API_URL}/votes/delete`, { method: 'DELETE' })
+        await fetch(`${config.API_URL}/responses/delete`, { method: 'DELETE' })
         alert('All votes have been deleted.')
         fetchData() // Refresh the data
       } catch (error) {
@@ -65,7 +66,12 @@ const Dashboard = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {scenarios.map((scenario, idx) => {
-          const response = responses.find((res) => res.scenarioID === idx)
+          let response = null
+          try {
+            response = responses.find((res) => res.scenarioID === idx)
+          } catch (error) {
+            console.error('This Index does not exist in Database.')
+          }
           return <DashItem key={idx} scenario={scenario} response={response} />
         })}
       </div>

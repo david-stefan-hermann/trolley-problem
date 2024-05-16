@@ -49,7 +49,7 @@ router.post('/vote', async (req, res) => {
 // Delete all votes
 router.delete('/delete', async (req, res) => {
   try {
-    const result = await Vote.deleteMany({})
+    const result = await Response.deleteMany({})
     res.json({ message: 'All votes deleted', result })
   } catch (err) {
     res.status(400).json('Error: ' + err)
