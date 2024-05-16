@@ -14,7 +14,6 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
 
     const handleVote = async (option) => {
         console.log('Voting for scenario', scenarioID, 'with option', option, 'on endpoint', `${config.API_URL}/responses/vote`)
-
         try {
             const response = await fetch(`${config.API_URL}/responses/vote`, {
                 method: 'POST',
@@ -28,6 +27,8 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                 throw new Error(`HTTP error! status: ${response.status}`)
             }
 
+            const data = await response.json()
+            console.log(data) // Do something with the data
         } catch (error) {
             console.error('Error:', error)
         }

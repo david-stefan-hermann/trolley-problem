@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const responseSchema = new mongoose.Schema({
-  scenarioId: { type: Number, required: true },
+  scenarioID: { type: Number, required: true },
   votes: {
     option1: { type: Number, required: true },
     option2: { type: Number, required: true }
