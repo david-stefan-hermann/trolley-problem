@@ -16,7 +16,7 @@ const Scenarios = () => {
     const currentScenario = scenarios[currentScenarioIndex]
 
     return (
-        <Scenario scenario={currentScenario} onNextScenario={handleNextScenario} />
+        <Scenario scenario={currentScenario} scenarioID={currentScenarioIndex} onNextScenario={handleNextScenario} />
     )
 }
 

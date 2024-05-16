@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import DashItem from './DashItem'
 import scenarios from '../scenarios/scenarios_data'
+import config from '../../../config'
 
 const Dashboard = () => {
   const [responses, setResponses] = useState([])
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/responses')
+        const response = await fetch(`${config.API_URL}/responses`)
         const data = await response.json()
         setResponses(data)
       } catch (error) {
@@ -16,35 +19,14 @@ const Dashboard = () => {
 
     fetchData()
   }, [])
+
   return (
     <div className="p-4">
       <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
-
-      {scenarios?.map(scenario => {
-
-        const response = responses?.find(res => res.scenarioId === scenario.id)
-        return (
-
-          <div key={scenario?.id} className="mb-6">
-            <h2 className="text-xl mb-2">{scenario?.question}</h2>
-
-            <div className="ml-4">
-              {scenario?.outcomes?.map((outcome, index) => {
-
-                const voteCount = response ? response.votes[`outcome${index + 1}`] : 0
-                return (
-                  <div key={index} className="mb-1">
-                    <span className="font-semibold">{outcome.option}: </span>
-                    <span>{voteCount} Stimmen</span>
-                  </div>
-                )
-              })}
-            </div>
-
-          </div>
-        )
-
-
+      <p>{`${config?.API_URL}`}</p>
+      {scenarios.map((scenario) => {
+        const response = responses.find((res) => res.scenarioId === scenario.id)
+        return <DashItem key={scenario.id} scenario={scenario} response={response} />
       })}
     </div>
   )

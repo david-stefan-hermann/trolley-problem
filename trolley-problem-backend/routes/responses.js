@@ -20,6 +20,8 @@ router.post('/add', async (req, res) => {
     votes: req.body.votes,
   })
 
+  console.log('newResponse: ' + req.body.scenarioId + ": " + req.body.votes)
+
   try {
     const savedResponse = await newResponse.save()
     res.json(savedResponse)

@@ -1,14 +1,36 @@
 import React, { useState } from 'react'
-
 import Button from '../input_elements/button'
-
 import placeholderImage from '../../assets/ghost.jpg'
+import config from '../../../config'
 
-const Scenario = ({ scenario, onNextScenario }) => {
+
+const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
     const [outcome, setOutcome] = useState(null)
 
     const handleOptionClick = (index) => {
         setOutcome(scenario.outcomes[index])
+        handleVote(index)
+    }
+
+    const handleVote = async (option) => {
+        console.log('Voting for scenario', scenarioID, 'with option', option, 'on endpoint', `${config.API_URL}/responses/vote`)
+
+        try {
+            const response = await fetch(`${config.API_URL}/responses/vote`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ scenarioID, option }),
+            })
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+
+        } catch (error) {
+            console.error('Error:', error)
+        }
     }
 
     return (
