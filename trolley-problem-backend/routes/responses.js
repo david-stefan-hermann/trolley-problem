@@ -46,4 +46,14 @@ router.post('/vote', async (req, res) => {
   }
 })
 
+// Delete all votes
+router.delete('/delete', async (req, res) => {
+  try {
+    const result = await Vote.deleteMany({})
+    res.json({ message: 'All votes deleted', result })
+  } catch (err) {
+    res.status(400).json('Error: ' + err)
+  }
+})
+
 export default router
