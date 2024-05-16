@@ -16,7 +16,12 @@ app.use(express.json())
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI)
-    console.log('MongoDB connected')
+    const connectionState = mongoose.connection.readyState
+    if (connectionState === 1) {
+      console.log('MongoDB connected successfully')
+    } else {
+      console.log('MongoDB connection unsuccessful, current state: ', connectionState)
+    }
   } catch (err) {
     console.error('MongoDB connection error:', err)
     process.exit(1)
