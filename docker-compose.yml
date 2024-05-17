@@ -11,7 +11,7 @@ services:
       - mongo-data:/data/db
 
   backend:
-    build: ./backend
+    build: ./trolley-problem-backend
     container_name: backend
     restart: always
     ports:
@@ -22,7 +22,7 @@ services:
       - mongo
 
   frontend:
-    build: ./frontend
+    build: ./trolley-problem-frontend
     container_name: frontend
     restart: always
     ports:
