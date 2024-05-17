@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
                     {' '} &#x2013; {' '}
                     <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://tailwindcss.com/docs'>Tailwind CSS</a>
                 </span>
-                <p className="text-1xl">von 2024 Karo, Philipp und David</p>
+                <p className="text-1xl">&copy;2024 Karo, Philipp und David</p>
             </footer>
         </div>
     )
