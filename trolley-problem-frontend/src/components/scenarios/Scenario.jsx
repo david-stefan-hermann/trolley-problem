@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from '../input_elements/button'
+import Button from '../input_elements/Button'
 import placeholderImage from '../../assets/ghost.jpg'
 import config from '../../../config'
 
