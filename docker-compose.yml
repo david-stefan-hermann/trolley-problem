@@ -2,11 +2,14 @@ version: '3.8'
 
 services:
   mongo:
-    image: mongo:4.2
+    image: arm64v8/mongo:4.4-bionic
     container_name: mongo
     restart: always
     ports:
       - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=SUPERSECRETPASSWORD
     volumes:
       - mongo-data:/data/db
 
@@ -18,7 +21,7 @@ services:
       - "5000:5000"
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb://mongo:27017/trolley-problem
+      - MONGO_URI=mongodb://admin:SUPERSECRETPASSWORD@mongo:27017/trolley-problem?authSource=admin
     depends_on:
       - mongo
 
