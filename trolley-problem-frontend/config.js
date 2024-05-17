@@ -3,7 +3,7 @@ const dev = {
   }
   
   const prod = {
-    API_URL: 'https://10.69.69.231:5000/api'
+    API_URL: 'https://cm.avernus.cloud:5000/api'
   }
   
   const config = process.env.NODE_ENV === 'development' ? dev : prod
