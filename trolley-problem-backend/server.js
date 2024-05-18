@@ -20,9 +20,8 @@ if (!mongoUri) {
 
 // Middleware
 app.use(cors({
-  origin: 'https://cm.avernus.cloud', // Allow requests from your frontend domain
+  origin: ['https://cm.avernus.cloud', 'https://api-cm.avernus.cloud'], // Allow requests from multiple frontend domains
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true // Allow credentials if needed
 }))
 app.use(express.json())
 
