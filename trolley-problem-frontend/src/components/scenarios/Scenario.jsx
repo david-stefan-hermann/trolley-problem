@@ -47,7 +47,7 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{outcome.description}</p>
-                        <div className="flex justify-center mt-6 space-x-4 fixed bottom-20 md:bottom-0 left-0 w-full bg-white py-4 space-x-0 static mt-0 md:relative">
+                        <div className="flex justify-center mt-6 space-x-4 fixed bottom-0 left-0 w-full bg-white py-4 space-x-0 static mt-0 md:relative">
 
                             <Button onClick={() => {
                                 setOutcome(null)
@@ -66,7 +66,7 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{scenario.question}</p>
-                        <div className="flex gap-2 justify-center fixed bottom-20 md:bottom-0 bg-white px-4 py-4 w-full left-0 space-x-0 md:relative">
+                        <div className="flex gap-2 justify-center fixed bottom-0 bg-white px-4 py-4 w-full left-0 space-x-0 md:relative">
                             {scenario.outcomes.map((outcome, index) => (
                                 <Button key={index} onClick={() => handleOptionClick(index)}>
                                     {outcome.option}

@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'indie': ['Indie Flower', 'cursive'], // Name it as 'indie' or any name you prefer
-        'annie': ['Annie Use Your Telescope', 'cursive'], // Name it as 'annie' or any name you prefer
-        'playopen': ['Playopen Sans', 'cursive'] // Name it as 'playopen' or any name you prefer
+        'indie': ['Indie Flower', 'sans-serif'], // Name it as 'indie' or any name you prefer
+        'annie': ['Annie Use Your Telescope', 'sans-serif'], // Name it as 'annie' or any name you prefer
+        'playpen': ['Playpen Sans', 'sans-serif'] // Name it as 'playopen' or any name you prefer
       }
     },
   },
