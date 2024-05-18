@@ -2,7 +2,7 @@ import React from 'react'
 
 const Layout = ({ children }) => {
     return (
-        <div className="flex flex-col min-h-screen p-4">
+        <div className="flex flex-col min-h-screen p-4 font-annie">
             <header className="w-full max-w-3xl text-center mx-auto mb-1 md:mb-3">
                 <h1 className="text-2xl md:text-4xl font-bold">Das Trolley Problem für autonomes Fahren</h1>
             </header>

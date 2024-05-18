@@ -4,9 +4,10 @@ const DashItem = ({ scenario, response }) => {
   const totalVotes = response ? Object.values(response.votes).reduce((a, b) => a + b, 0) : 0
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 mb-6 w-full">
-      <h2 className="text-xl font-bold mb-2">{scenario.question}</h2>
-      <div className="ml-4">
+    <div className="bg-white md:shadow-md md:rounded-lg md:p-4 my-2md:mt-0 md:mb-6 w-full">
+      <p className="text-sm text-gray-500 text-right">{scenario.title}</p>
+      <h2 className="text-xl font-bold mb-2 text-justify">{scenario.question}</h2>
+      <div className="">
         {scenario.outcomes.map((outcome, index) => {
           const voteCount = response ? response.votes[`option${index + 1}`] : 0
           const votePercentage = totalVotes ? (voteCount / totalVotes) * 100 : 0

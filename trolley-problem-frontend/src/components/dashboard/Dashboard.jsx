@@ -35,6 +35,7 @@ const Dashboard = () => {
         headers: {
           'Content-Type': 'application/json'
         },
+        body: JSON.stringify({ password: userPassword })
       })
 
       if (!response.ok) {
@@ -46,61 +47,37 @@ const Dashboard = () => {
     } catch (error) {
       console.error('Error:', error)
     }
-
-
-    /*
-      try {
-        await fetch(`${config.API_URL}/responses/delete`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ password: userPassword })
-        })
-        alert('All votes have been deleted.')
-        fetchData() // Refresh the data
-      } catch (error) {
-        console.error('Error deleting votes:', error)
-        alert('Incorrect password. Deletion aborted.')
-      }
-      */
   }
 
 
   return (
-    <div className="p-4 max-w-6xl">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-3xl font-bold">Dashboard</h1>
-        <div className="flex items-center">
-          <label className="flex items-center mr-4">
-            <input
-              type="checkbox"
-              checked={autoUpdate}
-              onChange={() => setAutoUpdate(!autoUpdate)}
-              className="toggle-checkbox"
-            />
-            <span className="ml-2">Auto Update</span>
-          </label>
-          <button
-            onClick={handleDeleteVotes}
-            className="bg-red-500 text-white py-2 px-4 rounded"
-          >
-            Delete All Votes
-          </button>
+    <>
+      <div className="flex w-full h-2 border-b border-slate-500"></div>
+      <div className="p-4 max-w-6xl">
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-2xl font-bold md:text-3xl">Auswertung</h1>
+          <div className="flex items-center">
+            <button
+              onClick={handleDeleteVotes}
+              className="bg-red-500 text-white py-1 md:py-2 px-4 rounded"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {scenarios.map((scenario, idx) => {
+            let response = null
+            try {
+              response = responses.find((res) => res.scenarioID === idx)
+            } catch (error) {
+              console.error('This Index does not exist in Database.')
+            }
+            return <DashItem key={idx} scenario={scenario} response={response} />
+          })}
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {scenarios.map((scenario, idx) => {
-          let response = null
-          try {
-            response = responses.find((res) => res.scenarioID === idx)
-          } catch (error) {
-            console.error('This Index does not exist in Database.')
-          }
-          return <DashItem key={idx} scenario={scenario} response={response} />
-        })}
-      </div>
-    </div>
+    </>
   )
 }
 

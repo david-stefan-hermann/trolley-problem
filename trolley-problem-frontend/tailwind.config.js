@@ -2,7 +2,15 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'indie': ['Indie Flower', 'cursive'], // Name it as 'indie' or any name you prefer
+        'annie': ['Annie Use Your Telescope', 'cursive'] // Name it as 'annie' or any name you prefer
+      },
+      fontSize: {
+        'base': '30px',
+      },
+    },
   },
   plugins: [],
 }
