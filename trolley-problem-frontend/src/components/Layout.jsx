@@ -2,7 +2,7 @@ import React from 'react'
 
 const Layout = ({ children }) => {
     return (
-        <div className="flex flex-col min-h-screen p-4 font-annie">
+        <div className="flex flex-col min-h-screen p-4 font-playopen">
             <header className="w-full max-w-3xl text-center mx-auto mb-1 md:mb-3">
                 <h1 className="text-2xl md:text-4xl font-bold">Das Trolley Problem für autonomes Fahren</h1>
             </header>
@@ -13,8 +13,6 @@ const Layout = ({ children }) => {
             <footer className="font-medium max-w-3xl text-center mx-auto p-4 h-20">
                 <span className="text-1xl">
                     <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://neal.fun/absurd-trolley-problems/'>neal.fun</a>
-                    {' '} &#x2013; {' '}
-                    <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://www.chatgpt.com'>ChatGPT</a>
                     {' '} &#x2013; {' '}
                     <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href='https://vitejs.dev/guide/'>Vitejs</a>
                     {' '} &#x2013; {' '}

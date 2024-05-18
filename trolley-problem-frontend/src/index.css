@@ -1,6 +1,5 @@
 /* Custom font */
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Indie+Flower&family=Playpen+Sans:wght@800&display=swap');
 
 /* Tailwind CSS */
 @tailwind base;
