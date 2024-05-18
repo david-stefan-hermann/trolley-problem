@@ -34,7 +34,7 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
             console.error('Error:', error)
         }
         */
-
+        /*
         try {
             const response = await axios.post(`${config.API_URL}/responses/vote`, {
               scenarioID,
@@ -50,6 +50,24 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
           } catch (error) {
             console.error('Error:', error)
           }
+
+          */
+
+        try {
+            const response = await axios.post(`${config.API_URL}/responses/vote`, {
+                scenarioID,
+                option
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
+            })
+
+            console.log(response.data) // Handle the response data
+        } catch (error) {
+            console.error('Error:', error)
+        }
     }
 
     return (

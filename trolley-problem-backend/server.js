@@ -20,16 +20,16 @@ if (!mongoUri) {
 
 // Middleware
 const corsOptions = {
-  origin: 'https://cm.avernus.cloud',
+  origin: ['https://cm.avernus.cloud', 'http://localhost:3000'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
   allowedHeaders: 'Content-Type,Authorization'
-};
+}
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions))
 
 // Explicitly handle preflight requests
-app.options('*', cors(corsOptions));
+app.options('*', cors(corsOptions))
 
 app.use(express.json())
 
