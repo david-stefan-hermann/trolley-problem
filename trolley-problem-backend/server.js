@@ -19,12 +19,18 @@ if (!mongoUri) {
 }
 
 // Middleware
-app.use(cors({
-  origin: 'https://cm.avernus.cloud', // Allow requests from multiple frontend domains
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+const corsOptions = {
+  origin: 'https://cm.avernus.cloud',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
   allowedHeaders: 'Content-Type,Authorization'
-}))
+};
+
+app.use(cors(corsOptions));
+
+// Explicitly handle preflight requests
+app.options('*', cors(corsOptions));
+
 app.use(express.json())
 
 // Connect to MongoDB
