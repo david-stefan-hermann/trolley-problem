@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from '../input_elements/Button'
 import placeholderImage from '../../assets/ghost.jpg'
 import config from '../../../config'
-
+import axios from 'axios'
 
 const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
     const [outcome, setOutcome] = useState(null)
