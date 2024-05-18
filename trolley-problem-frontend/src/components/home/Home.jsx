@@ -3,7 +3,7 @@ import Scenarios from '../scenarios/Scenarios'
 
 const Home = () => {
     return (
-        <div className="flex flex-col p-4">
+        <div className="flex flex-col">
             <main className="flex-grow flex flex-col items-center w-full">
                 <Scenarios />
             </main>

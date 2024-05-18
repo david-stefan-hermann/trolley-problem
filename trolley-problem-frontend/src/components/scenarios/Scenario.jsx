@@ -36,23 +36,26 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
 
     return (
         <>
-            <p className="text-2xl mb-8">{scenario.title}</p>
-            <div className="font-semibold bg-white w-full max-w-3xl p-6 rounded-lg shadow-lg">
+            <h1 className="text-2xl md:text-2xl mb-8">{scenario.title}</h1>
+            <div className="font-semibold w-full max-w-3xl text-center">
                 {outcome ? (
                     <>
                         <img
                             src={outcome.image}
                             alt="Outcome Illustration"
-                            className="w-full mb-4 rounded"
+                            className="w-full mb-4"
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{outcome.description}</p>
-                        <Button onClick={() => {
-                            setOutcome(null)
-                            onNextScenario()
-                        }}>
-                            Nächstes Szenario
-                        </Button>
+                        <div className="flex justify-center mt-6 space-x-4 fixed bottom-20 md:bottom-0 left-0 w-full bg-white py-4 space-x-0 static mt-0 md:relative">
+
+                            <Button onClick={() => {
+                                setOutcome(null)
+                                onNextScenario()
+                            }}>
+                                Nächstes Szenario
+                            </Button>
+                        </div>
                     </>
                 ) : (
                     <>
@@ -63,7 +66,7 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{scenario.question}</p>
-                        <div className="flex justify-center mt-6 space-x-4">
+                        <div className="flex gap-2 justify-center fixed bottom-20 md:bottom-0 bg-white px-4 py-4 w-full left-0 space-x-0 md:relative">
                             {scenario.outcomes.map((outcome, index) => (
                                 <Button key={index} onClick={() => handleOptionClick(index)}>
                                     {outcome.option}
