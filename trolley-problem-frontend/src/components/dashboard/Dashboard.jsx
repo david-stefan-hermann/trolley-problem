@@ -6,7 +6,6 @@ import config from '../../../config'
 const Dashboard = () => {
   const [responses, setResponses] = useState([])
   const [autoUpdate, setAutoUpdate] = useState(true)
-  const [password, setPassword] = useState('')
 
   const fetchData = async () => {
     try {
@@ -29,17 +28,20 @@ const Dashboard = () => {
 
   const handleDeleteVotes = async () => {
     const userPassword = prompt('Please enter the password to delete all votes:')
-    if (userPassword === password) {
       try {
-        await fetch(`${config.API_URL}/responses/delete`, { method: 'DELETE' })
+        await fetch(`${config.API_URL}/responses/delete`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ password: userPassword })
+        })
         alert('All votes have been deleted.')
         fetchData() // Refresh the data
       } catch (error) {
         console.error('Error deleting votes:', error)
+        alert('Incorrect password. Deletion aborted.')
       }
-    } else {
-      alert('Incorrect password. Deletion aborted.')
-    }
   }
 
   return (
