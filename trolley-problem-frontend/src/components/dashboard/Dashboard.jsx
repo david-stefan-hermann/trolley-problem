@@ -28,6 +28,28 @@ const Dashboard = () => {
 
   const handleDeleteVotes = async () => {
     const userPassword = prompt('Please enter the password to delete all votes:')
+
+    try {
+      const response = await fetch(`${config.API_URL}/responses/reset-votes`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data = await response.json()
+      console.log(data) // Handle the response
+    } catch (error) {
+      console.error('Error:', error)
+    }
+
+
+    /*
       try {
         await fetch(`${config.API_URL}/responses/delete`, {
           method: 'DELETE',
@@ -42,7 +64,9 @@ const Dashboard = () => {
         console.error('Error deleting votes:', error)
         alert('Incorrect password. Deletion aborted.')
       }
+      */
   }
+
 
   return (
     <div className="p-4 max-w-6xl">

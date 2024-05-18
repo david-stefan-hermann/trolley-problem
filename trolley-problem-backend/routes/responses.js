@@ -46,6 +46,23 @@ router.post('/vote', async (req, res) => {
   }
 })
 
+// Reset votes for all responses
+router.post('/reset-votes', async (req, res) => {
+  try {
+    const responses = await Response.find()
+
+    for (let response of responses) {
+      response.votes.option1 = 0
+      response.votes.option2 = 0
+      await response.save()
+    }
+
+    res.json('All votes have been reset')
+  } catch (err) {
+    res.status(500).json('Error: ' + err)
+  }
+})
+
 // Delete all votes
 router.delete('/delete', async (req, res) => {
   try {
