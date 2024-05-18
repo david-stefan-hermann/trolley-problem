@@ -14,7 +14,6 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
 
     const handleVote = async (option) => {
         console.log('Voting for scenario', scenarioID, 'with option', option, 'on endpoint', `${config.API_URL}/responses/vote`)
-        /*
         try {
             const response = await fetch(`${config.API_URL}/responses/vote`, {
                 method: 'POST',
@@ -30,41 +29,6 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
 
             const data = await response.json()
             console.log(data) // Do something with the data
-        } catch (error) {
-            console.error('Error:', error)
-        }
-        */
-        /*
-        try {
-            const response = await axios.post(`${config.API_URL}/responses/vote`, {
-              scenarioID,
-              option
-            }, {
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              withCredentials: true
-            })
-        
-            console.log(response.data) // Handle the response data
-          } catch (error) {
-            console.error('Error:', error)
-          }
-
-          */
-
-        try {
-            const response = await axios.post(`${config.API_URL}/responses/vote`, {
-                scenarioID,
-                option
-            }, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                withCredentials: true
-            })
-
-            console.log(response.data) // Handle the response data
         } catch (error) {
             console.error('Error:', error)
         }
