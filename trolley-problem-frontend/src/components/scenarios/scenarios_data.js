@@ -2,16 +2,16 @@ const scenarios = [
     {
         title: "Szenario 1",
         question: "Fünf Leute gehen plötzlich über einen Zebrastreifen. Würden Sie das autonome Fahrzeug die fünf Leute umfahren lassen oder eine Person auf dem Gehweg umfahren lassen?",
-        initialImage: "/images/scenario1-initial.png",
+        initialImage: "/scenarios/scenario1-initial.jpeg",
         outcomes: [
             {
                 option: "Fünf Leute umfahren",
-                image: "/images/scenario1-five.png",
+                image: "/scenarios/scenario1-five.jpeg",
                 description: "Sie haben gewählt, die fünf Leute umfahren zu lassen. Das Fahrzeug weicht nicht aus und trifft die fünf Leute.",
             },
             {
                 option: "Eine Person umfahren",
-                image: "/images/scenario1-one.png",
+                image: "/scenarios/scenario1-one.jpeg",
                 description: "Sie haben gewählt, eine Person umfahren zu lassen. Das Fahrzeug weicht aus und trifft die eine Person auf dem Gehweg.",
             },
         ],
@@ -19,16 +19,16 @@ const scenarios = [
     {
         title: "Szenario 2",
         question: "Fünf Leute gehen plötzlich über einen Zebrastreifen. Würden Sie das autonome Fahrzeug die fünf Leute umfahren lassen oder vier Personen auf dem Gehweg umfahren lassen?",
-        initialImage: "/images/scenario2-initial.png",
+        initialImage: "/scenarios/scenario2-initial.jpeg",
         outcomes: [
             {
                 option: "Fünf Leute umfahren",
-                image: "/images/scenario2-five.png",
+                image: "/scenarios/scenario2-five.jpeg",
                 description: "Sie haben gewählt, die fünf Leute umfahren zu lassen. Das Fahrzeug weicht nicht aus und trifft die fünf Leute.",
             },
             {
                 option: "Vier Personen umfahren",
-                image: "/images/scenario2-four.png",
+                image: "/scenarios/scenario2-four.jpeg",
                 description: "Sie haben gewählt, vier Personen umfahren zu lassen. Das Fahrzeug weicht aus und trifft die vier Personen auf dem Gehweg.",
             },
         ],
@@ -36,16 +36,16 @@ const scenarios = [
     {
         title: "Szenario 3",
         question: "Würden Sie das autonome Fahrzeug eine Familie oder fünf Jugendliche umfahren lassen?",
-        initialImage: "/images/scenario3-initial.png",
+        initialImage: "/scenarios/scenario3-initial.jpeg",
         outcomes: [
             {
                 option: "Eine Familie umfahren",
-                image: "/images/scenario3-family.png",
+                image: "/scenarios/scenario3-family.jpeg",
                 description: "Sie haben gewählt, die Familie umfahren zu lassen. Das Fahrzeug trifft die Familie.",
             },
             {
                 option: "Fünf Jugendliche umfahren",
-                image: "/images/scenario3-teens.png",
+                image: "/scenarios/scenario3-teens.jpeg",
                 description: "Sie haben gewählt, die fünf Jugendlichen umfahren zu lassen. Das Fahrzeug trifft die fünf Jugendlichen.",
             },
         ],
@@ -53,16 +53,16 @@ const scenarios = [
     {
         title: "Szenario 4",
         question: "Würden Sie das autonome Fahrzeug eine Familie umfahren lassen oder gegen einen Baum fahren lassen? Achtung: Sie befinden sich in dem Fahrzeug.",
-        initialImage: "/images/scenario4-initial.png",
+        initialImage: "/scenarios/scenario4-initial.jpeg",
         outcomes: [
             {
                 option: "Eine Familie umfahren",
-                image: "/images/scenario4-family.png",
+                image: "/scenarios/scenario4-family.jpeg",
                 description: "Sie haben gewählt, die Familie umfahren zu lassen. Das Fahrzeug trifft die Familie.",
             },
             {
                 option: "Gegen Baum fahren",
-                image: "/images/scenario4-tree.png",
+                image: "/scenarios/scenario4-tree.jpeg",
                 description: "Sie haben gewählt, das Fahrzeug gegen den Baum fahren zu lassen. Das Fahrzeug kollidiert mit dem Baum. Sie werden lebensgefährlich verletzt.",
             },
         ],
@@ -70,16 +70,16 @@ const scenarios = [
     {
         title: "Szenario 5",
         question: "Würden Sie das autonome Fahrzeug eine Familie umfahren lassen oder in den Gegenverkehr lenken lassen?  Achtung: Sie befinden sich in dem Fahrzeug.",
-        initialImage: "/images/scenario5-initial.png",
+        initialImage: "/scenarios/scenario5-initial.jpeg",
         outcomes: [
             {
                 option: "Eine Familie umfahren",
-                image: "/images/scenario5-family.png",
+                image: "/scenarios/scenario5-family.jpeg",
                 description: "Sie haben gewählt, die Familie umfahren zu lassen. Das Fahrzeug trifft die Familie.",
             },
             {
                 option: "In den Gegenverkehr lenken",
-                image: "/images/scenario5-traffic.png",
+                image: "/scenarios/scenario5-traffic.jpeg",
                 description: "Sie haben gewählt, das Fahrzeug in den Gegenverkehr lenken zu lassen. Das Fahrzeug kollidiert mit dem Gegenverkehr. Sie und eine Familie im Gegenverkehr werden lebensgefährlich verletzt.",
             },
         ],
