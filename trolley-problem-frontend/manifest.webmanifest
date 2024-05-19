@@ -1,5 +1,7 @@
 {
     "name": "Cm-Trolley",
+    "start_url": "https://cm.avernus.cloud",
+    "display": "minimal-ui",
     "icons": [
         {
             "src": "/icon-192.png",
