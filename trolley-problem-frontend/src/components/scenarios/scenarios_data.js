@@ -5,14 +5,14 @@ const scenarios = [
         initialImage: "/scenarios/scenario1-initial.jpeg",
         outcomes: [
             {
-                option: "Fünf Leute umfahren",
-                image: "/scenarios/scenario1-five.jpeg",
-                description: "Sie haben gewählt, die fünf Leute umfahren zu lassen. Das Fahrzeug weicht nicht aus und trifft die fünf Leute.",
-            },
-            {
                 option: "Eine Person umfahren",
                 image: "/scenarios/scenario1-one.jpeg",
                 description: "Sie haben gewählt, eine Person umfahren zu lassen. Das Fahrzeug weicht aus und trifft die eine Person auf dem Gehweg.",
+            },
+            {
+                option: "Fünf Leute umfahren",
+                image: "/scenarios/scenario1-five.jpeg",
+                description: "Sie haben gewählt, die fünf Leute umfahren zu lassen. Das Fahrzeug weicht nicht aus und trifft die fünf Leute.",
             },
         ],
     },
@@ -22,14 +22,14 @@ const scenarios = [
         initialImage: "/scenarios/scenario2-initial.jpeg",
         outcomes: [
             {
-                option: "Fünf Leute umfahren",
-                image: "/scenarios/scenario2-five.jpeg",
-                description: "Sie haben gewählt, die fünf Leute umfahren zu lassen. Das Fahrzeug weicht nicht aus und trifft die fünf Leute.",
-            },
-            {
                 option: "Vier Personen umfahren",
                 image: "/scenarios/scenario2-four.jpeg",
                 description: "Sie haben gewählt, vier Personen umfahren zu lassen. Das Fahrzeug weicht aus und trifft die vier Personen auf dem Gehweg.",
+            },
+            {
+                option: "Fünf Leute umfahren",
+                image: "/scenarios/scenario2-five.jpeg",
+                description: "Sie haben gewählt, die fünf Leute umfahren zu lassen. Das Fahrzeug weicht nicht aus und trifft die fünf Leute.",
             },
         ],
     },
@@ -73,14 +73,14 @@ const scenarios = [
         initialImage: "/scenarios/scenario5-initial.jpeg",
         outcomes: [
             {
-                option: "Eine Familie umfahren",
-                image: "/scenarios/scenario5-family.jpeg",
-                description: "Sie haben gewählt, die Familie umfahren zu lassen. Das Fahrzeug trifft die Familie.",
-            },
-            {
                 option: "In den Gegenverkehr lenken",
                 image: "/scenarios/scenario5-traffic.jpeg",
                 description: "Sie haben gewählt, das Fahrzeug in den Gegenverkehr lenken zu lassen. Das Fahrzeug kollidiert mit dem Gegenverkehr. Sie und eine Familie im Gegenverkehr werden lebensgefährlich verletzt.",
+            },
+            {
+                option: "Eine Familie umfahren",
+                image: "/scenarios/scenario5-family.jpeg",
+                description: "Sie haben gewählt, die Familie umfahren zu lassen. Das Fahrzeug trifft die Familie.",
             },
         ],
     },
