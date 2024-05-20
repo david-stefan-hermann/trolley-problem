@@ -22,6 +22,8 @@ services:
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://admin:SUPERSECRETPASSWORD@mongo:27017/trolley-problem?authSource=admin
+    secrets:
+      - delete_password
     depends_on:
       - mongo
 
