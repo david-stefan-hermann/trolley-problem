@@ -51,7 +51,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="flex w-full h-2 border-b border-slate-500"></div>
+      <div className="flex w-full h-2 border-b border-black"></div>
       <div className="p-4 max-w-6xl">
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold md:text-3xl">Auswertung</h1>
