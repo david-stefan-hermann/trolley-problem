@@ -38,5 +38,9 @@ services:
     depends_on:
       - backend
 
+secrets:
+  delete_password:
+    external: true
+
 volumes:
   mongo-data:
