@@ -39,13 +39,12 @@ const Dashboard = () => {
       })
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        // If the response is not OK, try to parse the error message
+        const errorData = await response.json()
+        throw new Error(`HTTP error! status: ${response.status} - ${errorData.message || JSON.stringify(errorData)}`)
       }
-
-      const data = await response.json()
-      console.log(data) // Handle the response
     } catch (error) {
-      console.error('Error:', error)
+      console.error('Error:', error.message || error)
     }
   }
 
