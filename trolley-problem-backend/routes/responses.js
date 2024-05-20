@@ -1,5 +1,6 @@
 import express from 'express'
 import Response from '../models/Response.js'
+import fs from 'fs'
 
 const router = express.Router()
 
@@ -48,6 +49,18 @@ router.post('/vote', async (req, res) => {
 
 // Reset votes for all responses
 router.post('/reset-votes', async (req, res) => {
+  const deletePassword = getDeletePassword()
+
+  const { password } = req.body
+
+  if (password === undefined || password ==="" || !password) {
+    return res.status(400).json('Error: Missing password')
+  }
+
+  if (password !== deletePassword) {
+    return res.status(401).json('Unauthorized')
+  }
+
   try {
     const responses = await Response.find()
 
@@ -63,14 +76,14 @@ router.post('/reset-votes', async (req, res) => {
   }
 })
 
-// Delete all votes
-router.delete('/delete', async (req, res) => {
+// Read Docker secret or fall back to environment variable
+const getDeletePassword = () => {
+  // set with: echo "yourpassword" | docker secret create delete_password -
   try {
-    const result = await Response.deleteMany({})
-    res.json({ message: 'All votes deleted', result })
+    return fs.readFileSync('/run/secrets/delete_password', 'utf-8').trim()
   } catch (err) {
-    res.status(400).json('Error: ' + err)
+    return process.env.DELETE_PASSWORD
   }
-})
+}
 
 export default router

@@ -10,7 +10,6 @@ dotenv.config({ path: envFile })
 
 const app = express()
 const port = process.env.PORT || 5000
-
 const mongoUri = process.env.MONGO_URI
 
 if (!mongoUri) {
