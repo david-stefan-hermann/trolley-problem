@@ -78,7 +78,7 @@ router.post('/reset-votes', async (req, res) => {
 
 // Read Docker secret or fall back to environment variable
 const getDeletePassword = () => {
-  // set with: printf "password" | docker secret create delete_password -
+  // set with: echo "password" | docker secret create delete_password -
   try {
     return fs.readFileSync('/run/secrets/delete_password', 'utf-8').trim()
   } catch (err) {
