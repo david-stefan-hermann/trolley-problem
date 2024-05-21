@@ -6,7 +6,7 @@ const DashItem = ({ scenario, response }) => {
   return (
     <div className="bg-white md:shadow-md md:rounded-lg md:p-4 my-2md:mt-0 md:mb-6 w-full">
       <p className="text-sm text-gray-500 text-right">{scenario.title}</p>
-      <h2 className="text-xl font-bold mb-2">{scenario.question}</h2>
+      <h2 className="text-xl font-bold mb-2">{scenario.shortDescription}</h2>
       <div className="">
         {scenario.outcomes.map((outcome, index) => {
           const voteCount = response ? response.votes[`option${index + 1}`] : 0
