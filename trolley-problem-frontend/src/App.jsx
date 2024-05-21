@@ -1,10 +1,9 @@
-// import './App.css'
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
+import Layout from './components/Layout'
 import Home from './components/home/Home'
 import Dashboard from './components/dashboard/DashBoard'
-import Layout from './components/Layout'
+
 
 const App = () => {
   return (

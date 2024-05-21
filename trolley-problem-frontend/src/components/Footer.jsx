@@ -9,7 +9,7 @@ const Footer = () => {
                 <span className="text-1xl">
                     <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" href='https://neal.fun/absurd-trolley-problems/'>neal.fun</a>
                     {' '} &#x2013; {' '}
-                    <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" href='https://vitejs.dev/guide/'>Vitejs</a>
+                    <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" href='https://vitejs.dev/guide/'>Vite</a>
                     {' '} &#x2013; {' '}
                     <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" href='https://tailwindcss.com/docs'>Tailwind CSS</a>
                 </span>
