@@ -4,6 +4,7 @@ import Buttons from '../input_elements/Buttons'
 import placeholderImage from '../../assets/ghost.jpg'
 import config from '../../../config'
 
+
 const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
     const [outcome, setOutcome] = useState(null)
 
@@ -68,6 +69,7 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{scenario.question}</p>
+                        
                         <Buttons>
                             {scenario.outcomes.map((outcome, index) => (
                                 <Button key={index} onClick={() => handleOptionClick(index)}>
