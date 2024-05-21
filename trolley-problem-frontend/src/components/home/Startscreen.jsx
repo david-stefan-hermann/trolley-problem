@@ -5,7 +5,7 @@ import Buttons from '../input_elements/Buttons'
 import Button from '../input_elements/Button'
 import Footer from '../Footer'
 
-const Startscreen = ({setReadMessage}) => {
+const StartScreen = ({setReadMessage}) => {
 
     return (
         <>
@@ -42,4 +42,4 @@ const Startscreen = ({setReadMessage}) => {
     )
 }
 
-export default Startscreen
+export default StartScreen

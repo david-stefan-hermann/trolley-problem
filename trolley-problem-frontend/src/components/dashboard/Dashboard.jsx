@@ -3,7 +3,7 @@ import DashItem from './DashItem'
 import scenarios from '../scenarios/scenarios_data'
 import config from '../../../config'
 
-const Dashboard = () => {
+const DashBoard = () => {
   const [responses, setResponses] = useState([])
   const [autoUpdate, setAutoUpdate] = useState(true)
 
@@ -80,4 +80,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default DashBoard
