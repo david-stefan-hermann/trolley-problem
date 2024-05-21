@@ -33,6 +33,7 @@ const scenarios = [
             },
         ],
     },
+    /*
     {
         title: "Szenario 3",
         question: "Würden Sie das autonome Fahrzeug eine Familie oder fünf Jugendliche umfahren lassen?",
@@ -49,9 +50,43 @@ const scenarios = [
                 description: "Sie haben gewählt, die fünf Jugendlichen umfahren zu lassen. Das Fahrzeug trifft die fünf Jugendlichen.",
             },
         ],
+    },*/
+    {
+        title: "Szenario 3",
+        question: "Ein Geschäftsmann eilt über die Straße, um einen wichtigen Termin nicht zu verpassen, und befindet sich direkt im Fahrweg des autonomen Fahrzeugs. Auf der gegenüberliegenden Seite der Straße steht ein Obdachloser, der ebenfalls vom Fahrzeug erfasst werden könnte. Würden Sie das autonome Fahrzeug den Geschäftsmann umfahren lassen oder den Obdachlosen?",
+        initialImage: "/scenarios/business-initial.jpeg",
+        outcomes: [
+            {
+                option: "Den Obdachlosen umfahren",
+                image: "/scenarios/business-homeless.jpeg",
+                description: "Sie haben gewählt, den Obdachlosen umfahren zu lassen. Das Fahrzeug weicht aus und trifft den Obdachlosen, der auf der anderen Straßenseite stand."
+            },
+            {
+                option: "Den Geschäftsmann umfahren",
+                image: "/scenarios/business-businessman.jpeg",
+                description: "Sie haben gewählt, den Geschäftsmann umfahren zu lassen. Das Fahrzeug weicht aus und trifft den Geschäftsmann, der über die Straße eilte."
+            }
+        ]
     },
     {
         title: "Szenario 4",
+        question: "Ein Geschäftsmann eilt mit seinem Hund über die Straße und befindet sich im direkten Fahrweg des autonomen Fahrzeugs. Auf der gegenüberliegenden Seite der Straße steht wie zuvor ein Obdachloser. Würden Sie das autonome Fahrzeug den Geschäftsmann mit seinem Hund umfahren lassen oder den Obdachlosen?",
+        initialImage: "/scenarios/dog-initial.jpeg",
+        outcomes: [
+            {
+                option: "Den Obdachlosen umfahren",
+                image: "/scenarios/dog-homeless.jpeg",
+                description: "Sie haben gewählt, den Obdachlosen umfahren zu lassen. Das Fahrzeug weicht aus und trifft den Obdachlosen, der auf der anderen Straßenseite stand."
+            },
+            {
+                option: "Den Geschäftsmann mit Hund umfahren",
+                image: "/scenarios/dog-businessman.jpeg",
+                description: "Sie haben gewählt, den Geschäftsmann mit seinem Hund umfahren zu lassen. Das Fahrzeug weicht aus und trifft beide, die über die Straße eilten."
+            }
+        ]
+    },
+    {
+        title: "Szenario 5",
         question: "Würden Sie das autonome Fahrzeug eine Familie umfahren lassen oder gegen einen Baum fahren lassen? Achtung: Sie befinden sich in dem Fahrzeug.",
         initialImage: "/scenarios/scenario4-initial.jpeg",
         outcomes: [
@@ -68,7 +103,7 @@ const scenarios = [
         ],
     },
     {
-        title: "Szenario 5",
+        title: "Szenario 6",
         question: "Würden Sie das autonome Fahrzeug eine Familie umfahren lassen oder in den Gegenverkehr lenken lassen?  Achtung: Sie befinden sich in dem Fahrzeug.",
         initialImage: "/scenarios/scenario5-initial.jpeg",
         outcomes: [
