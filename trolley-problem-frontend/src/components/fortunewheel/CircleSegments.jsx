@@ -19,11 +19,11 @@ const CircleSegments = ({ segments }) => {
     }, [])
 
     const size = wheelContainerWidth - 40 // Diameter of the circle
-    const radius = size / 2
-    const centerX = radius
-    const centerY = radius
+    const radius = size / 2 - 2     // - 2 to account for the stroke width
+    const centerX = radius + 2      // + 2 to account for the stroke width
+    const centerY = radius + 2      // + 2 to account for the stroke width
 
-    
+
     const drawSegment = (index, total) => {
         const angle = (2 * Math.PI) / total
         const startAngle = angle * index
@@ -67,7 +67,13 @@ const CircleSegments = ({ segments }) => {
 
                     return (
                         <g key={index}>
-                            <path d={pathData} fill={`hsl(${index * 360 / segments.length}, 70%, 50%)`} />
+                            <path
+                                d={pathData}
+                                // fill={`hsl(360, 0%, ${(index * 360 / segments.length) / 7.2}%)`}
+                                fill='white'
+                                stroke="black" // Color of the outline
+                                strokeWidth="4" // Width of the outline
+                            />
                             <text
                                 x={labelX}
                                 y={labelY}

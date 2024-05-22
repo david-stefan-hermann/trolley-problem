@@ -3,6 +3,7 @@ import CircleSegments from './CircleSegments'
 import Buttons from '../input_elements/Buttons'
 import Button from '../input_elements/Button'
 import segments from './fortune_wheel_data'
+import { FaCaretDown } from "react-icons/fa"
 
 function FortuneWheel() {
     const [wheelSpinning, setWheelSpinning] = React.useState(false)
@@ -27,18 +28,24 @@ function FortuneWheel() {
 
     const calculateWinner = (normalizedDegree) => {
         const degreesPerSegment = 360 / segments.length
-        const winningIndex = Math.floor((360 - normalizedDegree) / degreesPerSegment) % segments.length
-        setWinningSegment(segments[winningIndex].label)
+        const winningIndex = Math.floor((360 - normalizedDegree + 90) / degreesPerSegment) % segments.length
+        setWinningSegment(segments[winningIndex].text)
     }
 
     return (
         <div className="w-full flex flex-col text-center items-center">
-            <div className='w-full flex-col flex items-center py-4 overflow-hidden'>
+            <div className='w-full flex-col flex items-center pt-4 overflow-hidden'>
                 <div className='w-full flex flex-col items-center' style={{ transform: `rotate(${degree}deg)`, transition: wheelSpinning ? 'transform 3s ease-out' : 'none' }}>
                     <CircleSegments segments={segments} />
                 </div>
             </div>
-            {winningSegment && <p className='font-semibold text-lg mb-4'>{winningSegment}</p>}
+            
+            <div className='w-full flex flex-col items-center pb-4'>
+                
+            </div>
+
+            {(winningSegment && !wheelSpinning)&& <p className='font-semibold text-lg mb-4'>{winningSegment}</p>}
+            
             {!wheelSpinning ?
                 <Buttons>
                     {

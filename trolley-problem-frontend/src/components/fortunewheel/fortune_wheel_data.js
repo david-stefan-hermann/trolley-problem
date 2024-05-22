@@ -21,7 +21,7 @@ const segments = [
     },
     {
         label: 'Gegenverkehr',
-        text: 'Herzlichen Glückwunsch, Du hast den Gegenverkehr überfahren lassen.'
+        text: 'Herzlichen Glückwunsch, Du bist in den Gegenverkehr gefahren.'
     },
     {
         label: 'Eine Katze',
