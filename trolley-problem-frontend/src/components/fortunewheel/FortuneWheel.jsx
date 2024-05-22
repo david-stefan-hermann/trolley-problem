@@ -3,7 +3,8 @@ import CircleSegments from './CircleSegments'
 import Buttons from '../input_elements/Buttons'
 import Button from '../input_elements/Button'
 import segments from './fortune_wheel_data'
-import { FaCaretDown } from "react-icons/fa"
+import IconArrowUp from '../../assets/icons/icon-arrow-up.png'
+
 
 function FortuneWheel() {
     const [wheelSpinning, setWheelSpinning] = React.useState(false)
@@ -39,13 +40,18 @@ function FortuneWheel() {
                     <CircleSegments segments={segments} />
                 </div>
             </div>
-            
-            <div className='w-full flex flex-col items-center pb-4'>
-                
+
+            <div className='w-full flex flex-col items-center pb-4 -mt-5 z-10'>
+                <img
+                    src={IconArrowUp}
+                    alt="Outcome Illustration"
+                    className="h-10"
+                    onError={(e) => e.target.src = <p>^</p>} // Check if the image can be displayed
+                />
             </div>
 
-            {(winningSegment && !wheelSpinning)&& <p className='font-semibold text-lg mb-4'>{winningSegment}</p>}
-            
+            {(winningSegment && !wheelSpinning) && <p className='font-semibold text-lg mb-4'>{winningSegment}</p>}
+
             {!wheelSpinning ?
                 <Buttons>
                     {
