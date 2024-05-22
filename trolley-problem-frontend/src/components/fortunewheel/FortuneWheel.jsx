@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import CircleSegments from './CircleSegments'
 import Buttons from '../input_elements/Buttons'
 import Button from '../input_elements/Button'
 import segments from './fortune_wheel_data'
 import IconArrowUp from '../../assets/icons/icon-arrow-up.png'
+import confetti from 'canvas-confetti'
 
 
 function FortuneWheel() {
     const [wheelSpinning, setWheelSpinning] = React.useState(false)
     const [degree, setDegree] = useState(0)
     const [winningSegment, setWinningSegment] = useState('') // The segment that the wheel stops at
+    const canvasRef = useRef(null) // Ref for the confetti canvas
 
     const spinWheel = () => {
         setWheelSpinning(true)
@@ -24,6 +26,8 @@ function FortuneWheel() {
             const normalizedDegree = newDegree % 360
             setDegree(normalizedDegree)
             calculateWinner(normalizedDegree)
+            launchConfetti() // Trigger confetti on stop
+
         }, 3000)
     }
 
@@ -33,8 +37,17 @@ function FortuneWheel() {
         setWinningSegment(segments[winningIndex].text)
     }
 
+    const launchConfetti = () => {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 } // Makes it look like it's coming from the bottom
+        })
+    }
+
     return (
         <div className="w-full flex flex-col text-center items-center">
+            <canvas ref={canvasRef} className='fixed w-full h-full'></canvas> {/* Setup canvas for confetti */}
             <div className='w-full flex-col flex items-center pt-4 overflow-hidden'>
                 <div className='w-full flex flex-col items-center' style={{ transform: `rotate(${degree}deg)`, transition: wheelSpinning ? 'transform 3s ease-out' : 'none' }}>
                     <CircleSegments segments={segments} />
