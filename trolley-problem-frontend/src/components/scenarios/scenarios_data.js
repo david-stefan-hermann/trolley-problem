@@ -126,6 +126,6 @@ const scenarios = [
             },
         ],
     },
-];
+]
 
-export default scenarios;
+export default scenarios
