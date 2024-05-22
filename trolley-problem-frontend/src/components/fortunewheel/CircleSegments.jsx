@@ -77,7 +77,7 @@ const CircleSegments = ({ segments }) => {
                             <text
                                 x={labelX}
                                 y={labelY}
-                                className='text-1xl md:text-2xl'
+                                className='text-sm md:text-2xl'
                                 fill="black"
                                 textAnchor="end"
                                 alignmentBaseline="middle"
