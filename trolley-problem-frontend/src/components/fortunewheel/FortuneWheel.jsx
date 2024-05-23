@@ -6,7 +6,7 @@ import Button from '../input_elements/Button'
 import segments, { message } from './fortune_wheel_data'
 
 import IconArrowUp from '../../assets/icons/icon-arrow-up.png'
-import Icon from '/icon-512.png'
+import IconCircle from '../../assets/icons/icon-circle.png'
 
 import confetti from 'canvas-confetti'
 
@@ -85,21 +85,23 @@ function FortuneWheel() {
                 <div className='w-full flex flex-col items-center' style={{ transform: `rotate(${degree}deg)`, transition: wheelSpinning ? 'transform 3s ease-out' : 'none' }}>
                     <CircleSegments segments={segments} />
                 </div>
-                <div className='w-full h-auto flex flex-col items-center bg-red-500 opacity-50 absolute top-0 right-0 bottom-0 left-0'>
-                    <img
-                        src={Icon}
-                        alt="Outcome Illustration"
-                        className="h-10"
-                        onError={(e) => e.target.src = <p>^</p>} // Check if the image can be displayed
-                    />
+                <div className='w-full h-auto flex flex-col items-center absolute top-0 right-0 bottom-0 left-0'>
+                    <div className='h-full flex flex-col justify-center'>
+                        <img
+                            src={IconCircle}
+                            alt="Middle Part Illustration"
+                            className="h-9 md:h-9 2xl:h-11"
+                            onError={(e) => e.target.src = <></>} // Check if the image can be displayed
+                        />
+                    </div>
                 </div>
             </div>
 
             <div className='w-full flex flex-col items-center pb-4 -mt-5 z-10'>
                 <img
                     src={IconArrowUp}
-                    alt="Outcome Illustration"
-                    className="h-10"
+                    alt="Pointer Illustration"
+                    className="h-8 md:h-10"
                     onError={(e) => e.target.src = <p>^</p>} // Check if the image can be displayed
                 />
             </div>

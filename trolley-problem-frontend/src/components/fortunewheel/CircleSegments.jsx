@@ -64,7 +64,7 @@ const CircleSegments = ({ segments }) => {
                         const { pathData, labelX, labelY, labelText } = drawSegment(index, segments.length)
                         // Calculate the angle in degrees and adjust for text orientation
                         const angle = (index / segments.length) * 360
-                        const rotationAngle = angle + 22 // Subtract 90 degrees to align text radially with the middle of the segment
+                        const rotationAngle = angle + 20 // Subtract 90 degrees to align text radially with the middle of the segment
 
                         return (
                             <g key={index}>
