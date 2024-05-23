@@ -7,17 +7,25 @@ const AudioPlayer = ({ src, volume, control }) => {
   useEffect(() => {
     switch (control) {
       case 'play':
-        audioRef.current.src = src
-        audioRef.current.volume = volume
-        audioRef.current.play()
+        playSound()
         break
       case 'stop':
-        audioRef.current.src = ''
+        stopSound()
         break
       default:
         break
     }
   }, [control])
+
+  const playSound = () => {
+    audioRef.current.src = src
+    audioRef.current.volume = volume
+    audioRef.current.play()
+  }
+
+  const stopSound = () => {
+    audioRef.current.src = ''
+  }
 
   return <audio ref={audioRef} src={src} />
 }

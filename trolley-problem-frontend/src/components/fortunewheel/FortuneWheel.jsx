@@ -30,6 +30,7 @@ function FortuneWheel() {
 
         setDegree(newDegree)
 
+        setConfettiSoundControl('stop')
         setSpinningSoundControl('play')
 
         setTimeout(() => {
