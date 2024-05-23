@@ -58,36 +58,38 @@ const CircleSegments = ({ segments }) => {
 
     return (
         <div className="flex justify-center flex-col w-full max-w-xl" ref={wheelContainerRef}>
-            <svg width={size} height={size} className="mx-auto">
-                {segments.map((segment, index) => {
-                    const { pathData, labelX, labelY, labelText } = drawSegment(index, segments.length)
-                    // Calculate the angle in degrees and adjust for text orientation
-                    const angle = (index / segments.length) * 360
-                    const rotationAngle = angle + 22 // Subtract 90 degrees to align text radially with the middle of the segment
+            {size > 0 &&
+                <svg width={size} height={size} className="mx-auto">
+                    {segments.map((segment, index) => {
+                        const { pathData, labelX, labelY, labelText } = drawSegment(index, segments.length)
+                        // Calculate the angle in degrees and adjust for text orientation
+                        const angle = (index / segments.length) * 360
+                        const rotationAngle = angle + 22 // Subtract 90 degrees to align text radially with the middle of the segment
 
-                    return (
-                        <g key={index}>
-                            <path
-                                d={pathData}
-                                // fill={`hsl(360, 0%, ${(index * 360 / segments.length) / 7.2}%)`}
-                                fill='white'
-                                stroke="black" // Color of the outline
-                                strokeWidth="4" // Width of the outline
-                            />
-                            <text
-                                x={labelX}
-                                y={labelY}
-                                className='text-sm md:text-2xl'
-                                fill="black"
-                                textAnchor="end"
-                                alignmentBaseline="middle"
-                                transform={`rotate(${rotationAngle}, ${labelX}, ${labelY})`}>
-                                {labelText}
-                            </text>
-                        </g>
-                    )
-                })}
-            </svg>
+                        return (
+                            <g key={index}>
+                                <path
+                                    d={pathData}
+                                    // fill={`hsl(360, 0%, ${(index * 360 / segments.length) / 7.2}%)`}
+                                    fill='white'
+                                    stroke="black" // Color of the outline
+                                    strokeWidth="4" // Width of the outline
+                                />
+                                <text
+                                    x={labelX}
+                                    y={labelY}
+                                    className='text-sm md:text-2xl'
+                                    fill="black"
+                                    textAnchor="end"
+                                    alignmentBaseline="middle"
+                                    transform={`rotate(${rotationAngle}, ${labelX}, ${labelY})`}>
+                                    {labelText}
+                                </text>
+                            </g>
+                        )
+                    })}
+                </svg>
+            }
         </div>
     )
 }
