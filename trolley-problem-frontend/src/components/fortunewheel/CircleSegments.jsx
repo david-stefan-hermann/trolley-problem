@@ -57,7 +57,7 @@ const CircleSegments = ({ segments }) => {
     }
 
     return (
-        <div className="flex justify-center flex-col w-full max-w-xl" ref={wheelContainerRef}>
+        <div className="flex justify-center flex-col w-full max-w-sm xl:max-w-xl" ref={wheelContainerRef}>
             {size > 0 &&
                 <svg width={size} height={size} className="mx-auto">
                     {segments.map((segment, index) => {
@@ -78,7 +78,7 @@ const CircleSegments = ({ segments }) => {
                                 <text
                                     x={labelX}
                                     y={labelY}
-                                    className='text-sm md:text-2xl'
+                                    className='text-sm xl:text-2xl'
                                     fill="black"
                                     textAnchor="end"
                                     alignmentBaseline="middle"
