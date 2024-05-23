@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import CircleSegments from './CircleSegments'
 import Buttons from '../input_elements/Buttons'
 import Button from '../input_elements/Button'
-import segments from './fortune_wheel_data'
+
+import segments, {message} from './fortune_wheel_data'
+
 import IconArrowUp from '../../assets/icons/icon-arrow-up.png'
 
 import confetti from 'canvas-confetti'
@@ -77,7 +79,7 @@ function FortuneWheel() {
                 />
             </div>
 
-            {(winningSegment && !wheelSpinning) && <p className='font-semibold text-lg mb-4'>{winningSegment}</p>}
+            {(winningSegment && !wheelSpinning) && <p className='font-semibold text-lg mb-4'>{message.start + winningSegment}</p>}
 
             {!wheelSpinning ?
                 <>

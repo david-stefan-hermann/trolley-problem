@@ -1,37 +1,42 @@
 const segments = [
     {
         label: 'Geschäftsmann',
-        text: 'Herzlichen Glückwunsch, Du hast einen Geschäftsmann überfahren lassen.'
+        text: 'hast einen Geschäftsmann überfahren lassen.'
     },
     {
         label: 'Obdachloser',
-        text: 'Herzlichen Glückwunsch, Du hast einen Obdachlosen überfahren lassen.'
+        text: 'hast einen Obdachlosen überfahren lassen.'
     },
     {
         label: 'Eine Familie',
-        text: 'Herzlichen Glückwunsch, Du hast eine Familie überfahren lassen.'
+        text: 'hast eine Familie überfahren lassen.'
     },
     {
         label: 'Einen Hund',
-        text: 'Herzlichen Glückwunsch, Du hast einen Hund überfahren lassen.'
+        text: 'hast einen Hund überfahren lassen.'
     },
     {
         label: '5 Jugendliche',
-        text: 'Herzlichen Glückwunsch, Du hast fünf Jugendliche überfahren lassen.'
+        text: 'hast fünf Jugendliche überfahren lassen.'
     },
     {
         label: 'Gegenverkehr',
-        text: 'Herzlichen Glückwunsch, Du bist in den Gegenverkehr gefahren.'
+        text: 'bist in den Gegenverkehr gefahren.'
     },
     {
         label: 'Eine Katze',
-        text: 'Herzlichen Glückwunsch, Du hast eine Katze überfahren lassen.'
+        text: 'hast eine Katze überfahren lassen.'
     },
     {
         label: 'Gegen Baum',
-        text: 'Herzlichen Glückwunsch, Du bist gegen einen Baum gefahren.'
+        text: 'bist gegen einen Baum gefahren.'
     },
     // Add more segments as needed
 ]
 
+const message = {
+    start: 'Herzlichen Glückwunsch, Du hättest zwar nichts machen müssen, hast dich aber dafür entschieden am Rad zu drehen und ',
+}
+
+export { message }
 export default segments
