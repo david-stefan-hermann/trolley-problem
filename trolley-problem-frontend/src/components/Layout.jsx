@@ -13,10 +13,8 @@ const Layout = ({ children }) => {
             </main>
 
             <div className="flex w-full mb-4"></div>
-            
-            <div className="hidden md:block">
-                <Footer />
-            </div>
+
+            <Footer />
         </div>
     )
 }

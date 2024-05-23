@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa"
 
 const Footer = () => {
     return (
-        <>
+        <div className="hidden md:block z-10">
             <footer className="font-medium max-w-3xl text-center mx-auto p-4 h-20 z-10">
                 <span className="text-1xl">
                     <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" href='https://neal.fun/absurd-trolley-problems/'>neal.fun</a>
@@ -20,7 +20,7 @@ const Footer = () => {
                     , Karo, Philipp
                 </p>
             </footer>
-        </>
+        </div>
     )
 }
 
