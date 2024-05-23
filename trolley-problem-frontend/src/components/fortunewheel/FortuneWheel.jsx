@@ -93,7 +93,7 @@ function FortuneWheel() {
                         }
                     </Buttons>
                 </>
-                : <p className='h-4 justify-center fixed px-4 py-0 w-full left-0 space-x-0 bottom-8 md:bottom-0 md:relative'>drehen...</p>
+                : null
             }
 
             <AudioPlayer src={spinningSound} control={spinningSoundControl} volume={0.3} />
