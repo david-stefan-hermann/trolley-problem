@@ -3,7 +3,7 @@ import CircleSegments from './CircleSegments'
 import Buttons from '../input_elements/Buttons'
 import Button from '../input_elements/Button'
 
-import segments, {message} from './fortune_wheel_data'
+import segments, { message } from './fortune_wheel_data'
 
 import IconArrowUp from '../../assets/icons/icon-arrow-up.png'
 
@@ -54,10 +54,25 @@ function FortuneWheel() {
     }
 
     const launchConfetti = () => {
+        // Makes it look like it's coming from the bottom
         confetti({
             particleCount: 100,
             spread: 70,
-            origin: { y: 0.6 } // Makes it look like it's coming from the bottom
+            origin: { y: 0.7 }
+        })
+        // launch a few confetti from the left edge
+        confetti({
+            particleCount: 100,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        })
+        // and launch a few from the right edge
+        confetti({
+            particleCount: 100,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
         })
     }
 
