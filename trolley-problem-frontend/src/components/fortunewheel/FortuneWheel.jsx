@@ -24,7 +24,7 @@ function FortuneWheel() {
         const newDegree = degree + additionalDegrees // Add to current degree for continuous rotation
 
         setDegree(newDegree)
-        playSound(spinningRef)
+        playSound(spinningRef, spinningSound)
 
         setTimeout(() => {
             setWheelSpinning(false)
@@ -32,8 +32,8 @@ function FortuneWheel() {
             setDegree(normalizedDegree)
             calculateWinner(normalizedDegree)
             launchConfetti() // Trigger confetti on stop
-            playSound(audioRef)
-            pauseSound(spinningRef)
+            playSound(audioRef, confettiSound)
+            stopSound(spinningRef)
         }, 3000)
     }
 
@@ -51,16 +51,17 @@ function FortuneWheel() {
         })
     }
 
-    const playSound = (ref) => {
+    const playSound = (ref, sound) => {
         if (ref.current) {
+            ref.current.src = sound
             ref.current.currentTime = 0
             ref.current.play()
         }
     }
 
-    const pauseSound = (ref) => {
+    const stopSound = (ref) => {
         if (ref.current) {
-            ref.current.pause()
+            ref.current.src = '';
         }
     }
 
