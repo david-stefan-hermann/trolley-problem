@@ -15,8 +15,8 @@ function FortuneWheel() {
     const [wheelSpinning, setWheelSpinning] = React.useState(false)
     const [degree, setDegree] = useState(0)
     const [winningSegment, setWinningSegment] = useState('') // The segment that the wheel stops at
-    const [spinningSoundControl, setSpinningSoundControl] = useState('stop');
-    const [confettiSoundControl, setConfettiSoundControl] = useState('stop');
+    const [spinningSoundControl, setSpinningSoundControl] = useState('stop')
+    const [confettiSoundControl, setConfettiSoundControl] = useState('stop')
     const canvasRef = useRef(null) // Ref for the confetti canvas
 
 
