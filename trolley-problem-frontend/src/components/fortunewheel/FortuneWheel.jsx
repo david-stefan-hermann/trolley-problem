@@ -6,6 +6,7 @@ import Button from '../input_elements/Button'
 import segments, { message } from './fortune_wheel_data'
 
 import IconArrowUp from '../../assets/icons/icon-arrow-up.png'
+import Icon from '/icon-512.png'
 
 import confetti from 'canvas-confetti'
 
@@ -80,9 +81,17 @@ function FortuneWheel() {
         <div className="w-full flex flex-col text-center items-center">
             <canvas ref={canvasRef} className='hidden'></canvas> {/* Setup canvas for confetti */}
 
-            <div className='w-full flex-col flex items-center pt-4 overflow-hidden'>
+            <div className='w-full flex-col flex items-center mt-4 overflow-hidden relative'>
                 <div className='w-full flex flex-col items-center' style={{ transform: `rotate(${degree}deg)`, transition: wheelSpinning ? 'transform 3s ease-out' : 'none' }}>
                     <CircleSegments segments={segments} />
+                </div>
+                <div className='w-full h-auto flex flex-col items-center bg-red-500 opacity-50 absolute top-0 right-0 bottom-0 left-0'>
+                    <img
+                        src={Icon}
+                        alt="Outcome Illustration"
+                        className="h-10"
+                        onError={(e) => e.target.src = <p>^</p>} // Check if the image can be displayed
+                    />
                 </div>
             </div>
 

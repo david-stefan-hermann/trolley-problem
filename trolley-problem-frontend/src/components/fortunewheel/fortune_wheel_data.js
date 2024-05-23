@@ -31,6 +31,10 @@ const segments = [
         label: 'Gegen Baum',
         text: 'bist gegen einen Baum gefahren.'
     },
+    {
+        label: 'Ein Kind',
+        text: 'hast ein Kind überfahren lassen.'
+    },
     // Add more segments as needed
 ]
 
