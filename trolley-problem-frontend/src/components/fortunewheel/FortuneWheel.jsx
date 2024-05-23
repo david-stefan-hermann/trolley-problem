@@ -4,18 +4,21 @@ import Buttons from '../input_elements/Buttons'
 import Button from '../input_elements/Button'
 import segments from './fortune_wheel_data'
 import IconArrowUp from '../../assets/icons/icon-arrow-up.png'
+
 import confetti from 'canvas-confetti'
+
 import confettiSound from '../../assets/sounds/firecracker.mp3'
 import spinningSound from '../../assets/sounds/bike-wheel.mp3'
-
+import AudioPlayer from '../helpers/AudioPlayer'
 
 function FortuneWheel() {
     const [wheelSpinning, setWheelSpinning] = React.useState(false)
     const [degree, setDegree] = useState(0)
     const [winningSegment, setWinningSegment] = useState('') // The segment that the wheel stops at
+    const [spinningSoundControl, setSpinningSoundControl] = useState('stop');
+    const [confettiSoundControl, setConfettiSoundControl] = useState('stop');
     const canvasRef = useRef(null) // Ref for the confetti canvas
-    const audioRef = useRef(null)
-    const spinningRef = useRef(null)
+
 
     const spinWheel = () => {
         setWheelSpinning(true)
@@ -24,16 +27,20 @@ function FortuneWheel() {
         const newDegree = degree + additionalDegrees // Add to current degree for continuous rotation
 
         setDegree(newDegree)
-        playSound(spinningRef, spinningSound)
+
+        setSpinningSoundControl('play')
 
         setTimeout(() => {
             setWheelSpinning(false)
+
             const normalizedDegree = newDegree % 360
             setDegree(normalizedDegree)
             calculateWinner(normalizedDegree)
-            launchConfetti() // Trigger confetti on stop
-            playSound(audioRef, confettiSound)
-            stopSound(spinningRef)
+
+            launchConfetti() // Trigger confetti on stop            
+
+            setSpinningSoundControl('stop')
+            setConfettiSoundControl('play')
         }, 3000)
     }
 
@@ -51,33 +58,10 @@ function FortuneWheel() {
         })
     }
 
-    const playSound = (ref, sound) => {
-        if (ref.current) {
-            ref.current.src = sound
-            ref.current.currentTime = 0
-            ref.current.play()
-        }
-    }
-
-    const stopSound = (ref) => {
-        if (ref.current) {
-            ref.current.src = '';
-        }
-    }
-
-    useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.volume = 0.1
-        }
-        if (spinningRef.current) {
-            spinningRef.current.volume = 0.3
-        }
-    }, [])
-
     return (
         <div className="w-full flex flex-col text-center items-center">
-            <canvas ref={canvasRef} className='fixed w-full h-full'></canvas> {/* Setup canvas for confetti */}
-            
+            <canvas ref={canvasRef} className='hidden'></canvas> {/* Setup canvas for confetti */}
+
             <div className='w-full flex-col flex items-center pt-4 overflow-hidden'>
                 <div className='w-full flex flex-col items-center' style={{ transform: `rotate(${degree}deg)`, transition: wheelSpinning ? 'transform 3s ease-out' : 'none' }}>
                     <CircleSegments segments={segments} />
@@ -110,8 +94,8 @@ function FortuneWheel() {
                 : <p className='h-4 justify-center fixed px-4 py-0 w-full left-0 space-x-0 bottom-8 md:bottom-0 md:relative'>drehen...</p>
             }
 
-            <audio ref={audioRef} src={confettiSound} />
-            <audio ref={spinningRef} src={spinningSound} />
+            <AudioPlayer src={spinningSound} control={spinningSoundControl} volume={0.3} />
+            <AudioPlayer src={confettiSound} control={confettiSoundControl} volume={0.1} />
         </div>
     )
 }
