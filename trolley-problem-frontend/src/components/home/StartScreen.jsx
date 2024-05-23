@@ -17,10 +17,11 @@ const StartScreen = ({setReadMessage}) => {
                     className="w-full mb-4 rounded"
                     onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                 />
+                
                 <p className="text-lg mb-4">
-                    Du erlebst als Passagier in einem autonomen Fahrzeug
-                    eine unerwartete Notfallsituation. Du musst schnell entscheiden, wer in
-                    einem unvermeidbaren Unfall betroffen sein wird.
+                    Du bist Programmierer:in eines autonomen Fahrzeugs. In Notfallsituationen 
+                    muss das Fahrzeug eine Entscheidung treffen, die Menschenleben kostet.
+                    Wie soll das Fahrzeug entscheiden?
                 </p>
 
                 <div className="md:hidden">
