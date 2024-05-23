@@ -44,7 +44,7 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                         <img
                             src={outcome.image}
                             alt="Outcome Illustration"
-                            className="w-full mb-4 md:max-w-lg xl:max-w-none"
+                            className="w-full mb-4 md:max-w-lg 2xl:max-w-none"
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{outcome.description}</p>
@@ -65,7 +65,7 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                         <img
                             src={scenario.initialImage}
                             alt="Initial State Illustration"
-                            className="w-full mb-4 md:max-w-lg xl:max-w-none"
+                            className="w-full mb-4 md:max-w-lg 2xl:max-w-none"
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{scenario.question}</p>

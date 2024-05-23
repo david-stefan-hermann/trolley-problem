@@ -14,7 +14,7 @@ const StartScreen = ({ setReadMessage }) => {
                 <img
                     src={splashImage}
                     alt="Initial State Illustration"
-                    className="w-full mb-4 md:max-w-lg xl:max-w-none"
+                    className="w-full mb-4 md:max-w-lg 2xl:max-w-none"
                     onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                 />
 
