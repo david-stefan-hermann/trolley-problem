@@ -40,8 +40,7 @@ services:
 
 secrets:
   delete_password:
-    external: true
-    name: delete_votes_password
+    file: delete_password.txt
 
 volumes:
   mongo-data:
