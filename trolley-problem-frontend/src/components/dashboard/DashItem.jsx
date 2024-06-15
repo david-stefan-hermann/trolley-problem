@@ -1,7 +1,10 @@
 import React from 'react'
+import useSurveyVotes from '../../hooks/useSurveyVotes'
 
-const DashItem = ({ scenario, response }) => {
+
+const DashItem = ({ scenarioID, scenario, response }) => {
   const totalVotes = response ? Object.values(response.votes).reduce((a, b) => a + b, 0) : 0
+  const [votes, castVote, clearVotes] = useSurveyVotes()
 
   return (
     <div className="bg-white md:shadow-md md:rounded-lg md:p-4 my-2md:mt-0 md:mb-6 w-full">
@@ -11,6 +14,7 @@ const DashItem = ({ scenario, response }) => {
         {scenario.outcomes.map((outcome, index) => {
           const voteCount = response ? response.votes[`option${index + 1}`] : 0
           const votePercentage = totalVotes ? (voteCount / totalVotes) * 100 : 0
+          const userVotePercentage = votes[scenarioID] == index ? 100 / voteCount : 0
           return (
             <div key={index} className="mb-4">
               <div className="flex justify-between">
@@ -21,7 +25,12 @@ const DashItem = ({ scenario, response }) => {
                 <div
                   className="bg-blue-500 h-4 rounded-full"
                   style={{ width: `${votePercentage}%` }}
-                ></div>
+                >
+                  <div
+                    className="bg-[#F6AF3B] h-4 rounded-full"
+                    style={{ width: `${userVotePercentage * 1}%` }}
+                  ></div>
+                </div>
               </div>
             </div>
           )
