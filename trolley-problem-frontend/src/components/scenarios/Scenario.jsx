@@ -3,10 +3,12 @@ import Button from '../input_elements/Button'
 import Buttons from '../input_elements/Buttons'
 import placeholderImage from '../../assets/ghost.jpg'
 import config from '../../../config'
+import useSurveyVotes from '../../hooks/useSurveyVotes'
 
 
 const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
     const [outcome, setOutcome] = useState(null)
+    const [votes, castVote, clearVotes] = useSurveyVotes()
 
     const handleOptionClick = (index) => {
         setOutcome(scenario.outcomes[index])
@@ -33,6 +35,10 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
         } catch (error) {
             console.error('Error:', error)
         }
+
+        // Clear votes if the scenario is the first one
+        scenarioID == 0 && clearVotes()
+        castVote(scenarioID, option)
     }
 
     return (
