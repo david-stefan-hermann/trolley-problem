@@ -19,7 +19,7 @@ if (!mongoUri) {
 
 // Middleware
 const corsOptions = {
-  origin: ['https://cm.avernus.cloud', 'https://api-cm.avernus.cloud', 'http://localhost:3000'],
+  origin: ['https://cm.avernus.cloud', 'https://api-cm.avernus.cloud', 'http://localhost:3000', 'http://10.69.69.231:3000'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
   allowedHeaders: 'Content-Type,Authorization'
