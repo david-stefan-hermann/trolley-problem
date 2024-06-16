@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import DashItem from './DashItem'
 import scenarios from '../scenarios/scenarios_data'
-import config from '../../../config'
 import QrDisplay from './QrDisplay'
 import { FaQrcode } from "react-icons/fa"
 import { GiEasterEgg } from "react-icons/gi"
 import useDeleteVotes from '../../hooks/useDeleteVotes'
-
+import useFetchVotes from '../../hooks/useFetchVotes'
+import Footer from '../Footer'
 
 const DashBoard = () => {
   const responses = useFetchVotes()
-  const [autoUpdate] = useState(true)
   const [displayQr, setDisplayQr] = useState(false)
   const [deleteVotes, isLoading, error] = useDeleteVotes()
 
@@ -40,10 +39,10 @@ const DashBoard = () => {
         <div className="p-4 max-w-6xl">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl font-bold md:text-3xl">Auswertung</h1>
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <button
                 onClick={handleSpinClick}
-                className="bg-gray-500 hover:bg-gray-600 text-white h-8 px-4 mr-3 rounded"
+                className="bg-gray-500 hover:bg-gray-600 text-white h-8 px-2 rounded"
               >
                 <span>
                   <GiEasterEgg />
@@ -51,7 +50,7 @@ const DashBoard = () => {
               </button>
               <button
                 onClick={() => setDisplayQr(true)}
-                className="bg-gray-500 hover:bg-gray-600 text-white h-8 px-4 mr-3 rounded"
+                className="bg-gray-500 hover:bg-gray-600 text-white h-8 px-2 rounded"
               >
                 <span>
                   <FaQrcode />
@@ -60,7 +59,7 @@ const DashBoard = () => {
               <button
                 onClick={handleDeleteVotes}
                 disabled={isLoading}
-                className={`${isLoading ? "bg-gray-500" : "bg-red-500 hover:bg-red-600"} text-white h-8 px-4 align-items-center rounded`}
+                className={`${isLoading ? "bg-gray-500" : "bg-red-500 hover:bg-red-600"} text-white h-8 px-2 align-items-center rounded`}
               >
                 Reset
               </button>
