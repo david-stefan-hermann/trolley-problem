@@ -24,10 +24,6 @@ const StartScreen = ({ setReadMessage }) => {
                     Wie soll das Fahrzeug entscheiden?
                 </p>
 
-                <div className="md:hidden">
-                    <Footer />
-                </div>
-
                 <Buttons>
                     {
                         <Button onClick={() => {
