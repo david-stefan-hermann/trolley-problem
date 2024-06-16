@@ -6,12 +6,15 @@ import config from '../../../config'
 import QrDisplay from './QrDisplay'
 import { FaQrcode } from "react-icons/fa"
 import { GiEasterEgg } from "react-icons/gi"
+import useDeleteVotes from '../../hooks/useDeleteVotes'
 
 
 const DashBoard = () => {
   const [responses, setResponses] = useState([])
-  const [autoUpdate, setAutoUpdate] = useState(true)
+  const [autoUpdate] = useState(true)
   const [displayQr, setDisplayQr] = useState(false)
+  const [deleteVotes, isLoading, error] = useDeleteVotes()
+
   const navigate = useNavigate()
 
   const fetchData = async () => {
@@ -34,24 +37,10 @@ const DashBoard = () => {
   }, [autoUpdate])
 
   const handleDeleteVotes = async () => {
-    const userPassword = prompt('Please enter the password to delete all votes:')
-
     try {
-      const response = await fetch(`${config.API_URL}/responses/reset-votes`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ password: userPassword })
-      })
-
-      if (!response.ok) {
-        // If the response is not OK, try to parse the error message
-        const errorData = await response.json()
-        throw new Error(`HTTP error! status: ${response.status} - ${errorData.message || JSON.stringify(errorData)}`)
-      }
+      await deleteVotes()
     } catch (error) {
-      console.error('Error:', error.message || error)
+      console.error('Error deleting votes:', error)
     }
   }
 
@@ -89,7 +78,8 @@ const DashBoard = () => {
               </button>
               <button
                 onClick={handleDeleteVotes}
-                className="bg-red-500 hover:bg-red-600 text-white h-8 px-4 align-items-center rounded"
+                disabled={isLoading}
+                className={`${isLoading ? "bg-gray-500" : "bg-red-500 hover:bg-red-600"} text-white h-8 px-4 align-items-center rounded`}
               >
                 Reset
               </button>
