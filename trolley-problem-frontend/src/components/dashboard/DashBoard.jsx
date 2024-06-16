@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import DashItem from './DashItem'
 import scenarios from '../scenarios/scenarios_data'
 import config from '../../../config'
 import QrDisplay from './QrDisplay'
 import { FaQrcode } from "react-icons/fa"
+import { GiEasterEgg } from "react-icons/gi"
 
 
 const DashBoard = () => {
   const [responses, setResponses] = useState([])
   const [autoUpdate, setAutoUpdate] = useState(true)
   const [displayQr, setDisplayQr] = useState(false)
+  const navigate = useNavigate()
 
   const fetchData = async () => {
     try {
@@ -52,6 +55,9 @@ const DashBoard = () => {
     }
   }
 
+  const handleSpinClick = () => {
+    navigate('/spin')
+  }
 
   return (
     <>
@@ -65,6 +71,14 @@ const DashBoard = () => {
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl font-bold md:text-3xl">Auswertung</h1>
             <div className="flex items-center">
+              <button
+                onClick={handleSpinClick}
+                className="bg-gray-500 hover:bg-gray-600 text-white h-8 px-4 mr-3 rounded"
+              >
+                <span>
+                  <GiEasterEgg />
+                </span>
+              </button>
               <button
                 onClick={() => setDisplayQr(true)}
                 className="bg-gray-500 hover:bg-gray-600 text-white h-8 px-4 mr-3 rounded"
