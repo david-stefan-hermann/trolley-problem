@@ -4,7 +4,7 @@ import useSurveyVotes from '../../hooks/useSurveyVotes'
 
 const DashItem = ({ scenarioID, scenario, response }) => {
   const totalVotes = response ? Object.values(response.votes).reduce((a, b) => a + b, 0) : 0
-  const [votes, castVote, clearVotes] = useSurveyVotes()
+  const [votes] = useSurveyVotes()
 
   return (
     <div className="bg-white md:shadow-md md:rounded-lg md:p-4 my-2md:mt-0 md:mb-6 w-full">
