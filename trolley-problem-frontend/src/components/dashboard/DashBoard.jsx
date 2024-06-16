@@ -10,31 +10,12 @@ import useDeleteVotes from '../../hooks/useDeleteVotes'
 
 
 const DashBoard = () => {
-  const [responses, setResponses] = useState([])
+  const responses = useFetchVotes()
   const [autoUpdate] = useState(true)
   const [displayQr, setDisplayQr] = useState(false)
   const [deleteVotes, isLoading, error] = useDeleteVotes()
 
   const navigate = useNavigate()
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${config.API_URL}/responses`)
-      const data = await response.json()
-      setResponses(data)
-    } catch (error) {
-      setResponses([])
-      console.error('Error fetching responses:', error)
-    }
-  }
-
-  useEffect(() => {
-    fetchData()
-    if (autoUpdate) {
-      const interval = setInterval(fetchData, 3000)
-      return () => clearInterval(interval)
-    }
-  }, [autoUpdate])
 
   const handleDeleteVotes = async () => {
     try {
