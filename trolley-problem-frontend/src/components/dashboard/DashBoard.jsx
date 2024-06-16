@@ -7,7 +7,6 @@ import { FaQrcode } from "react-icons/fa"
 import { GiEasterEgg } from "react-icons/gi"
 import useDeleteVotes from '../../hooks/useDeleteVotes'
 import useFetchVotes from '../../hooks/useFetchVotes'
-import Footer from '../Footer'
 
 const DashBoard = () => {
   const responses = useFetchVotes()

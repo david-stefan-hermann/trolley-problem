@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import config from '../../config'
 
 const useDeleteVotes = () => {
   const [isLoading, setIsLoading] = useState(false)
