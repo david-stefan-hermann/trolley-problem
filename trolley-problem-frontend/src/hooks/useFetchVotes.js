@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import config from '../../config'
 
 const useFetchVotes = () => {
     const [responses, setResponses] = useState([])
