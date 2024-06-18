@@ -1,11 +1,11 @@
 const segments = [
     {
         label: 'Geschäftsperson',
-        text: 'hast einen Geschäftsmann überfahren lassen.'
+        text: 'hast eine Geschäftsperson überfahren lassen.'
     },
     {
         label: 'Obdachlose Person',
-        text: 'hast einen Obdachlosen überfahren lassen.'
+        text: 'hast eine obdachlose Person überfahren lassen.'
     },
     {
         label: 'Eine Familie',
