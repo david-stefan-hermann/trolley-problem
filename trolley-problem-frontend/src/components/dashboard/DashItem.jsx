@@ -14,22 +14,22 @@ const DashItem = ({ scenarioID, scenario, response }) => {
         {scenario.outcomes.map((outcome, index) => {
           const voteCount = response ? response.votes[`option${index + 1}`] : 0
           const votePercentage = totalVotes ? (voteCount / totalVotes) * 100 : 0
-          const userVotePercentage = votes[scenarioID] == index ? 100 / voteCount : 0
           return (
-            <div key={index} className="mb-4">
+            <div key={index} className="mb-4 outline-[#F6AF3B]">
               <div className="flex justify-between">
-                <span className="font-semibold">{outcome.option}</span>
+                <span className=
+                  {`font-semibold flex align-bottom
+                    ${votes[scenarioID] == index && 'underline'}
+                  `}>
+                  {outcome.option}
+                </span>
                 <span>{voteCount} Stimmen ({votePercentage.toFixed(1)}%)</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-4 mt-2">
                 <div
-                  className="bg-blue-500 h-4 rounded-full"
+                  className="h-4 rounded-full bg-blue-500"
                   style={{ width: `${votePercentage}%` }}
                 >
-                  <div
-                    className="bg-[#F6AF3B] h-4 rounded-full"
-                    style={{ width: `${userVotePercentage * 1}%` }}
-                  ></div>
                 </div>
               </div>
             </div>
