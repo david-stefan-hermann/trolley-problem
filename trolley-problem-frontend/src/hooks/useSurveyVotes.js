@@ -20,6 +20,7 @@ function useSurveyVotes(initialVotes = []) {
       newVotes[surveyIndex] = option
       return newVotes
     })
+    console.log('local votes: ' + votes)
   }
 
   // Function to clear all votes
@@ -31,6 +32,21 @@ function useSurveyVotes(initialVotes = []) {
   // Use useEffect to update local storage whenever the votes state changes
   useEffect(() => {
     localStorage.setItem('surveyVotes', JSON.stringify(votes))
+
+    const timeoutId = setTimeout(() => {
+      console.log('Clearing votes after timeout')
+      clearVotes()
+    }, 300000) // Clear votes after 5 minutes
+
+    window.onbeforeunload = () => {
+      console.log('Clearing votes before unloading')
+      clearVotes()
+    }
+
+    return () => {
+      clearTimeout(timeoutId)
+      window.onbeforeunload = null
+    }
   }, [votes])
 
   return [votes, castVote, clearVotes]

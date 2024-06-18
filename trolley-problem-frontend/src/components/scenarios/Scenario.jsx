@@ -31,14 +31,14 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
             }
 
             const data = await response.json()
-            console.log(data) // Do something with the data
+            // console.log(data) // Do something with the data
         } catch (error) {
             console.error('Error:', error)
         }
 
         // Clear votes if the scenario is the first one
-        scenarioID == 0 && clearVotes()
         castVote(scenarioID, option)
+        console.log('local vote: ' + votes)
     }
 
     return (
