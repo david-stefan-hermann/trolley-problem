@@ -56,37 +56,37 @@ const scenarios = [
     },*/
     {
         title: "Szenario 3",
-        shortDescription: "Entscheidung zwischen dem Umfahren eines eilenden Geschäftsmanns oder eines Obdachlosen.",
-        question: "Ein Geschäftsmann eilt über die Straße, um einen wichtigen Termin nicht zu verpassen, und befindet sich direkt im Fahrweg des autonomen Fahrzeugs. Auf der gegenüberliegenden Seite der Straße steht ein Obdachloser, der ebenfalls vom Fahrzeug erfasst werden könnte. Würden Sie das autonome Fahrzeug den Geschäftsmann überfahren lassen oder den Obdachlosen?",
+        shortDescription: "Entscheidung zwischen dem Umfahren einer eilenden Geschäftsperson oder einer obdachlosen Person.",
+        question: "Ein Geschäftsmann / eine Geschäftsfrau eilt über die Straße, um einen wichtigen Termin nicht zu verpassen, und befindet sich direkt im Fahrweg des autonomen Fahrzeugs. Auf der gegenüberliegenden Seite der Straße steht ein Obdachloser, der ebenfalls vom Fahrzeug erfasst werden könnte. Würden Sie das autonome Fahrzeug den Geschäftsmann / die Geschäftsfrau überfahren lassen oder die obdachlose Person?",
         initialImage: "/scenarios/business-initial.jpeg",
         outcomes: [
             {
-                option: "Den Obdachlosen überfahren",
+                option: "Die obdachlose Person überfahren",
                 image: "/scenarios/business-homeless.jpeg",
-                description: "Sie haben gewählt, den Obdachlosen überfahren zu lassen. Das Fahrzeug weicht aus und trifft den Obdachlosen, der auf der anderen Straßenseite stand."
+                description: "Sie haben gewählt, die obdachlose Person überfahren zu lassen. Das Fahrzeug weicht aus und trifft die obdachlose Person, der auf der anderen Straßenseite stand."
             },
             {
-                option: "Den Geschäftsmann überfahren",
+                option: "Den Geschäftsmann / die Geschäftsfrau überfahren",
                 image: "/scenarios/business-businessman.jpeg",
-                description: "Sie haben gewählt, den Geschäftsmann überfahren zu lassen. Das Fahrzeug weicht aus und trifft den Geschäftsmann, der über die Straße eilte."
+                description: "Sie haben gewählt, die Geschäftsperson überfahren zu lassen. Das Fahrzeug weicht aus und trifft die Geschäftsperson, der über die Straße eilte."
             }
         ]
     },
     {
         title: "Szenario 4",
-        shortDescription: "Entscheidung zwischen dem Umfahren eines eilenden Geschäftsmanns mit seinem Hund oder eines Obdachlosen.",
-        question: "Ein Geschäftsmann eilt mit seinem Hund über die Straße und befindet sich im direkten Fahrweg des autonomen Fahrzeugs. Auf der gegenüberliegenden Seite der Straße steht wie zuvor ein Obdachloser. Würden Sie das autonome Fahrzeug den Geschäftsmann mit seinem Hund überfahren lassen oder den Obdachlosen?",
+        shortDescription: "Entscheidung zwischen dem Umfahren einer eilenden Geschäftsperson mit seinem Hund oder einer obdachlosen Person.",
+        question: "Ein Geschäftsmann / eine Geschäftsfrau eilt mit seinem / ihrem Hund über die Straße und befindet sich im direkten Fahrweg des autonomen Fahrzeugs. Auf der gegenüberliegenden Seite der Straße steht wie zuvor ein Obdachloser. Würden Sie das autonome Fahrzeug den Geschäftsmann / die Geschäftsfrau mit seinem Hund überfahren lassen oder die obdachlose Person?",
         initialImage: "/scenarios/dog-initial.jpeg",
         outcomes: [
             {
-                option: "Den Obdachlosen überfahren",
+                option: "Die obdachlose Person überfahren",
                 image: "/scenarios/dog-homeless.jpeg",
-                description: "Sie haben gewählt, den Obdachlosen überfahren zu lassen. Das Fahrzeug weicht aus und trifft den Obdachlosen, der auf der anderen Straßenseite stand."
+                description: "Sie haben gewählt, die obdachlose Person überfahren zu lassen. Das Fahrzeug weicht aus und trifft die obdachlose Person, der auf der anderen Straßenseite stand."
             },
             {
-                option: "Den Geschäftsmann mit Hund überfahren",
+                option: "Den Geschäftsmann / die Geschäftsfrau überfahren",
                 image: "/scenarios/dog-businessman.jpeg",
-                description: "Sie haben gewählt, den Geschäftsmann mit seinem Hund überfahren zu lassen. Das Fahrzeug weicht aus und trifft beide, die über die Straße eilten."
+                description: "Sie haben gewählt, die Geschäftsperson mit seinem Hund überfahren zu lassen. Das Fahrzeug weicht aus und trifft beide, die über die Straße eilten."
             }
         ]
     },
