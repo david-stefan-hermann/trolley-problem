@@ -23,7 +23,9 @@ const corsOptions = {
   origin: [
     'https://cm.avernus.cloud',
     'https://api-cm.avernus.cloud',
-    'http://10.69.69.232'
+    'http://10.69.69.232',
+    `http://localhost:${port}`,
+    'http://localhost:3000'
   ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
@@ -65,7 +67,7 @@ const swaggerOptions = {
     info: {
       title: 'Express API with Swagger',
       version: '1.0.0',
-      description: 'A simple Express API',
+      description: 'This is a simple API for the Trolley Problem project',
     },
     servers: [
       {
