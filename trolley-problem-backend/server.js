@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import responseRoutes from './routes/responses.js'
 import dotenv from 'dotenv'
-
+import swaggerUi from 'swagger-ui-express'
+import swaggerJsdoc from 'swagger-jsdoc'
 
 const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
 dotenv.config({ path: envFile })
@@ -56,6 +57,30 @@ connectDB()
 
 // Routes
 app.use('/api/responses', responseRoutes)
+
+// Swagger
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Express API with Swagger',
+      version: '1.0.0',
+      description: 'A simple Express API',
+    },
+    servers: [
+      {
+        url: 'http://localhost:5000/api/',
+      },
+      {
+        url: 'https://cm.avernus.cloud/api/',
+      }
+    ],
+  },
+  apis: ['./routes/*.js'], // files containing annotations as above
+}
+
+const specs = swaggerJsdoc(swaggerOptions)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`)

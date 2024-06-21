@@ -4,6 +4,92 @@ import fs from 'fs'
 
 const router = express.Router()
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Response:
+ *       type: object
+ *       required:
+ *         - scenarioID
+ *         - votes
+ *       properties:
+ *         scenarioID:
+ *           type: string
+ *           description: The id of the scenario
+ *         votes:
+ *           type: object
+ *           properties:
+ *             option1:
+ *               type: integer
+ *               description: The number of votes for option 1
+ *             option2:
+ *               type: integer
+ *               description: The number of votes for option 2
+ *       example:
+ *         scenarioID: d5fE_asz
+ *         votes:
+ *           option1: 10
+ *           option2: 5
+ */
+
+/**
+ * @swagger
+ * /responses:
+ *   get:
+ *     summary: Get all responses
+ *     responses:
+ *       200:
+ *         description: A list of responses
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Response'
+ *       404:
+ *         description: No responses found
+ *       500:
+ *         description: Server error
+ */
+
+/**
+ * @swagger
+ * /responses/vote:
+ *   post:
+ *     summary: Vote for a response
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - scenarioID
+ *               - option
+ *             properties:
+ *               scenarioID:
+ *                 type: string
+ *                 description: The id of the scenario
+ *               option:
+ *                 type: integer
+ *                 description: The option to vote for (0 for option1, 1 for option2)
+ *             example:
+ *               scenarioID: d5fE_asz
+ *               option: 0
+ *     responses:
+ *       200:
+ *         description: The updated response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Response'
+ *       400:
+ *         description: Invalid option
+ *       500:
+ *         description: Server error
+ */
+
 // Get all responses
 router.get('/', async (req, res) => {
   try {
