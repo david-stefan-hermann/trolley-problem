@@ -17,7 +17,6 @@ const Footer = () => {
                 <p>
                     <FaGithub className='inline mr-1 align-baseline' />
                     <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" href='https://github.com/david-stefan-hermann/trolley-problem'>David Hermann</a>
-                    , Karo, Philipp
                 </p>
             </footer>
         </div>
