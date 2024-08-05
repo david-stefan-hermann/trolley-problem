@@ -44,7 +44,7 @@ export default function Page() {
             setDegree(normalizedDegree)
             calculateWinner(normalizedDegree)
 
-            launchConfetti() // Trigger confetti on stop            
+            launchConfetti() // Trigger confetti on stop
 
             setSpinningSoundControl('stop')
             setConfettiSoundControl('play')
@@ -95,7 +95,7 @@ export default function Page() {
                             height={500}
                             src={IconCircle}
                             alt="Middle Part Illustration"
-                            className="h-9 md:h-9 2xl:h-11"
+                            className="h-9 w-auto md:h-9 2xl:h-11"
                             onError={(e) => e.target.src = <></>} // Check if the image can be displayed
                         />
                     </div>
@@ -108,7 +108,7 @@ export default function Page() {
                     height={500}
                     src={IconArrowUp}
                     alt="Pointer Illustration"
-                    className="h-8 md:h-10"
+                    className="h-8 w-auto md:h-10"
                     onError={(e) => e.target.src = <p>^</p>} // Check if the image can be displayed
                 />
             </div>
