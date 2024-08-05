@@ -1,8 +1,17 @@
-// AudioPlayer.jsx
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
 
 const AudioPlayer = ({ src, volume, control }) => {
   const audioRef = useRef(null)
+
+  const playSound = useCallback(() => {
+    audioRef.current.src = src
+    audioRef.current.volume = volume
+    audioRef.current.play()
+  }, [src, volume])
+
+  const stopSound = useCallback(() => {
+    audioRef.current.src = ''
+  }, [])
 
   useEffect(() => {
     switch (control) {
@@ -15,17 +24,7 @@ const AudioPlayer = ({ src, volume, control }) => {
       default:
         break
     }
-  }, [control])
-
-  const playSound = () => {
-    audioRef.current.src = src
-    audioRef.current.volume = volume
-    audioRef.current.play()
-  }
-
-  const stopSound = () => {
-    audioRef.current.src = ''
-  }
+  }, [control, playSound, stopSound])
 
   return <audio ref={audioRef} src={src} />
 }
