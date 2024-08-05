@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server'
 import Response from '../../../models/Response'
 import dbConnect from '../../../utils/dbConnect'
 
-export const runtime = 'edge'
-
 export async function POST(req) {
     if (req.method !== 'POST') {
         return NextResponse.json({ message: 'Method not allowed' }, { status: 405 })

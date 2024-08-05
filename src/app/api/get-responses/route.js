@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server'
 import Response from '../../../models/Response'
 import dbConnect from '../../../utils/dbConnect'
 
-export const runtime = 'edge'
-
 export async function GET() {
 
   try {
