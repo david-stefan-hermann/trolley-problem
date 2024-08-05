@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Scenarios from './Scenarios'
 import StartScreen from './StartScreen'
 
-const Home = () => {
+export default function Page() {
     const [readMessage, setReadMessage] = useState(false)
 
     return (
@@ -15,5 +15,3 @@ const Home = () => {
         </div>
     )
 }
-
-export default Home

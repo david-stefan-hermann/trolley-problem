@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Playpen_Sans } from "next/font/google"
-import "./globals.css";
+import "./globals.css"
 
 const playpen_Sans = Playpen_Sans({
   subsets: ["latin"],

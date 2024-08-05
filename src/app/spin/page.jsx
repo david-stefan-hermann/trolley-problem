@@ -18,7 +18,7 @@ const IconArrowUp = '/icons/icon-arrow-up.png'
 const confettiSound = '/sounds/firecracker.mp3'
 const spinningSound = '/sounds/bike-wheel.mp3'
 
-function FortuneWheel() {
+export default function Page() {
     const [wheelSpinning, setWheelSpinning] = React.useState(false)
     const [degree, setDegree] = useState(0)
     const [winningSegment, setWinningSegment] = useState('') // The segment that the wheel stops at
@@ -135,5 +135,3 @@ function FortuneWheel() {
         </div>
     )
 }
-
-export default FortuneWheel

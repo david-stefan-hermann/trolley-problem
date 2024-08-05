@@ -11,12 +11,12 @@ import useFetchVotes from '../../hooks/useFetchVotes'
 
 import { useRouter } from 'next/navigation'
 
-const DashBoard = () => {
+export default function Page() {
   const router = useRouter()
 
   const responses = useFetchVotes()
   const [displayQr, setDisplayQr] = useState(false)
-  const [deleteVotes, isLoading, error] = useDeleteVotes()
+  const [deleteVotes, isLoading] = useDeleteVotes()
 
   const handleDeleteVotes = async () => {
     try {
@@ -83,5 +83,3 @@ const DashBoard = () => {
     </>
   )
 }
-
-export default DashBoard
