@@ -3,5 +3,5 @@ name = "trolley-problem"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
-MONGODB_URI=mongodb://localhost:27017/trolley-problem
+MONGODB_URI="mongodb://localhost:27017/trolley-problem"
 DELETE_PASSWORD="todo:password"
