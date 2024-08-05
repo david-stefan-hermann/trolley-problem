@@ -34,7 +34,7 @@ const StartScreen = ({ setReadMessage }) => {
                         <Button onClick={() => {
                             setReadMessage(true)
                         }}>
-                            Los geht's
+                            Los geht&apos;s
                         </Button>
                     }
                 </Buttons>
