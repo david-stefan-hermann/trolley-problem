@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react'
 
 function useSurveyVotes(initialVotes = []) {
   const [votes, setVotes] = useState(() => {
-    const savedVotes = localStorage.getItem('surveyVotes')
-    return savedVotes ? JSON.parse(savedVotes) : initialVotes
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const savedVotes = localStorage.getItem('surveyVotes')
+      return savedVotes ? JSON.parse(savedVotes) : initialVotes
+    }
+    return initialVotes
   })
 
   // Function to update the vote for a specific survey
@@ -26,26 +29,30 @@ function useSurveyVotes(initialVotes = []) {
   // Function to clear all votes
   const clearVotes = () => {
     setVotes([])
-    localStorage.removeItem('surveyVotes')  // Also clear from local storage
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.removeItem('surveyVotes')  // Also clear from local storage
+    }
   }
 
   // Use useEffect to update local storage whenever the votes state changes
   useEffect(() => {
-    localStorage.setItem('surveyVotes', JSON.stringify(votes))
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('surveyVotes', JSON.stringify(votes))
 
-    const timeoutId = setTimeout(() => {
-      console.log('Clearing votes after timeout')
-      clearVotes()
-    }, 300000) // Clear votes after 5 minutes
+      const timeoutId = setTimeout(() => {
+        console.log('Clearing votes after timeout')
+        clearVotes()
+      }, 300000) // Clear votes after 5 minutes
 
-    window.onbeforeunload = () => {
-      console.log('Clearing votes before unloading')
-      clearVotes()
-    }
+      window.onbeforeunload = () => {
+        console.log('Clearing votes before unloading')
+        clearVotes()
+      }
 
-    return () => {
-      clearTimeout(timeoutId)
-      window.onbeforeunload = null
+      return () => {
+        clearTimeout(timeoutId)
+        window.onbeforeunload = null
+      }
     }
   }, [votes])
 
