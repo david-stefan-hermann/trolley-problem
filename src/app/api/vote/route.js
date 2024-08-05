@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import Response from '../../../models/Response'
 import dbConnect from '../../../utils/dbConnect'
 
-export const runtime = process.env.NODE_ENV === 'development' ? 'node' : 'edge'
+export const runtime = process.env.NODE_ENV === 'development' ? 'nodejs' : 'edge'
 
 export async function POST(req) {
     if (req.method !== 'POST') {
