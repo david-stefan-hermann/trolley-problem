@@ -8,22 +8,30 @@ const Scenarios = () => {
     const router = useRouter()
 
     const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0)
-    const [isDone, setIsDone] = useState(false)
 
     const handleNextScenario = () => {
         if (currentScenarioIndex < scenarios.length - 1) {
             setCurrentScenarioIndex(currentScenarioIndex + 1)
-        } else {
-            setCurrentScenarioIndex(0)
-            router.push('/dashboard')
+
         }
+    }
+
+    const handleLastScenario = () => {
+        router.push('/dashboard')
     }
 
     const currentScenario = scenarios[currentScenarioIndex]
 
     return (
-        <Scenario scenario={currentScenario} scenarioID={currentScenarioIndex} onNextScenario={handleNextScenario} />
+        <Scenario
+            scenario={currentScenario}
+            scenarioID={currentScenarioIndex}
+            onNextScenario={
+                currentScenarioIndex < scenarios.length - 1 ? handleNextScenario : handleLastScenario
+            }
+        />
     )
 }
+
 
 export default Scenarios
