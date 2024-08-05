@@ -3,6 +3,7 @@ import Button from '../components/Button'
 import Buttons from '../components/Buttons'
 import useSurveyVotes from '../hooks/useSurveyVotes'
 
+import Image from 'next/image'
 const placeholderImage = '/ghost.jpg'
 
 const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
@@ -46,7 +47,9 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
             <div className="font-semibold w-full max-w-3xl text-center flex flex-col items-center">
                 {outcome ? (
                     <>
-                        <img
+                        <Image
+                            width={500}
+                            height={500}
                             src={outcome.image}
                             alt="Outcome Illustration"
                             className="w-full mb-4 md:max-w-lg 2xl:max-w-none"
@@ -67,14 +70,16 @@ const Scenario = ({ scenario, scenarioID, onNextScenario }) => {
                     </>
                 ) : (
                     <>
-                        <img
+                        <Image
+                            width={500}
+                            height={500}
                             src={scenario.initialImage}
                             alt="Initial State Illustration"
                             className="w-full mb-4 md:max-w-lg 2xl:max-w-none"
                             onError={(e) => e.target.src = placeholderImage} // Check if the image can be displayed
                         />
                         <p className="text-lg mb-4">{scenario.question}</p>
-                        
+
                         <Buttons>
                             {scenario.outcomes.map((outcome, index) => (
                                 <Button key={index} onClick={() => handleOptionClick(index)}>

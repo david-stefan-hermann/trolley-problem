@@ -10,6 +10,8 @@ import segments, { message } from './fortune_wheel_data'
 import confetti from 'canvas-confetti'
 import AudioPlayer from '../../components/AudioPlayer'
 
+import Image from 'next/image'
+
 const IconCircle = '/icons/icon-circle.png'
 const IconArrowUp = '/icons/icon-arrow-up.png'
 
@@ -88,7 +90,9 @@ function FortuneWheel() {
                 </div>
                 <div className='w-full h-auto flex flex-col items-center absolute top-0 right-0 bottom-0 left-0'>
                     <div className='h-full flex flex-col justify-center'>
-                        <img
+                        <Image
+                            width={500}
+                            height={500}
                             src={IconCircle}
                             alt="Middle Part Illustration"
                             className="h-9 md:h-9 2xl:h-11"
@@ -99,7 +103,9 @@ function FortuneWheel() {
             </div>
 
             <div className='w-full flex flex-col items-center pb-4 -mt-5 z-10'>
-                <img
+                <Image
+                    width={500}
+                    height={500}
                     src={IconArrowUp}
                     alt="Pointer Illustration"
                     className="h-8 md:h-10"

@@ -3,6 +3,7 @@
 import React from 'react'
 import Buttons from '../components/Buttons'
 import Button from '../components/Button'
+import Image from 'next/image'
 
 const placeholderImage = '/ghost.jpg'
 const splashImage = '/splash.jpeg'
@@ -13,7 +14,9 @@ const StartScreen = ({ setReadMessage }) => {
         <>
             <div className="font-semibold w-full max-w-3xl text-center mt-2 flex flex-col items-center">
 
-                <img
+                <Image
+                    width={500}
+                    height={500}
                     src={splashImage}
                     alt="Initial State Illustration"
                     className="w-full mb-4 md:max-w-lg 2xl:max-w-none"
